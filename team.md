@@ -2,6 +2,7 @@
 layout: team
 title: Team
 permalink: /team/
+weight: 2
 
 team:
   - name: Core
