@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="stylesheet" href="bulma-pigeon.css">
+  <script src="pigeon.js"></script>
+  <title>Pigeoncoin</title>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html">
+          <h1 class="title is-3">Pigeoncoin</h1>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+        </div>
+        <div class="navbar-end">
+          <a href="index.html" class="navbar-item">Home</a>
+          <a href="team.html" class="navbar-item">Team</a>
+          <a href="mining.html" class="navbar-item"><strong>Mining</strong></a>
+          <a href="roadmap.html" class="navbar-item">Roadmap</a>
+          <a href="test.html" class="navbar-item"><i class="fab fa-discord fa-2x"></i></a>
+        </div>
+      </div>
+  </nav>
+
+
+  <section class="section">
+    <div class="canvas-container" style="">
+      <canvas id="myChart"></canvas>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="columns is-multiline has-text-centered">
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Price</h1>
+          <h2 class="title" id="lastPrice">...</h2>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Volume</h1>
+          <h2 class="title" id="volume">...</h2>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Market Cap</h1>
+          <h2 class="title" id="marketcap">...</h2>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Supply</h1>
+          <h2 class="title" id="supply">...</h2>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="columns is-multiline has-text-centered">
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Hashrate</h1>
+          <h2 class="title" id="hashrate">...</h2>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Difficulty</h1>
+          <h2 class="title" id="difficulty">...</h2>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Height</h1>
+          <h2 class="title" id="blockcount">...</h2>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="notification">
+          <h1 class="subtitle">Retarget</h1>
+          <h2 class="title" id="nextblock">...</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <footer class="footer has-text-centered">
+      <p>
+        <a href=""><i class="fab fa-discord fa-2x"></i></a>
+        <a href=""><i class="fab fa-twitter fa-2x"></i></a>
+        <a href=""><i class="fab fa-github fa-2x"></i></a>
+        <a href=""><i class="fab fa-reddit fa-2x"></i></a>
+        <a href=""><i class="fab fa-telegram fa-2x"></i></a>
+        <a href=""><i class="fab fa-medium fa-2x"></i></a>
+      </p>
+  </footer>
+
+  <!-- chart.js needs to be at the end of body -->
+  <script>
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"],
+              datasets: [{
+                  label: 'Hashrate',
+                  data: [90, 150, 390, 170, 60, 120],
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255,99,132,1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              tooltips: {
+                enabled: false
+              },
+              legend: {
+                display:false,
+                position:'bottom'
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+  </script>
+</body>
+</html>

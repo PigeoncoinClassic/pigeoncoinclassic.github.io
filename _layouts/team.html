@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+
+
+
+<section class="section">
+  <h1 class="title">Core</h1>
+  <h2 class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing.</h2>
+
+  <div class="columns is-multiline is-mobile">
+
+    {% for person in page.core %}
+      <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-square">
+              <img src="{{ person.img }}" alt="">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">{{ person.name }}</p>
+                <p class="subtitle is-6">{{ person.title }}</p>
+              </div>
+            </div>
+
+            <div class="content">
+              {{ person.text }}
+            </div>
+          </div>
+
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <span>
+                <a href="https://www.linkedin.com/in/{{ person.linkedin }}"><i class="fab fa-linkedin fa-2x"></i></a>
+              </span>
+            </p>
+            <p class="card-footer-item">
+              <span>
+                <a href="https://twitter.com/{{ person.twitter }}"><i class="fab fa-twitter-square fa-2x"></i></a>
+              </span>
+            </p>
+          </footer>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    <!-- HERO -->
+    <section class="hero is-primary is-bold is-medium">
+      <div class="hero-head">
+
+        {%- include navbar.html -%}
+
+      </div>
+
+      <!-- HERO body -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <img class="logo" src="/assets/img/icon5.svg" alt="">
+          <h2 class="subtitle">
+            Secure messaging and simple payments.
+          </h2>
+        </div>
+      </div>
+
+    </section>
+
+
+    {%- include stats.html -%}
+
+    {%- include download.html -%}
+
+    {%- include social.html -%}
+
+
+
+    {{ content }}
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>

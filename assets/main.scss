@@ -1,0 +1,32 @@
+---
+---
+
+// Import the initial variables
+@import "bulma/sass/utilities/initial-variables";
+@import "bulma/sass/utilities/functions";
+
+$primary: #9CCAED;
+
+
+
+.footer i{
+  margin-left:5px;
+  margin-right:5px;
+}
+
+.hero-body .logo{
+  //margin-top: 80px;
+  margin-bottom:80px;
+  max-width:280px;
+}
+
+
+
+
+
+
+
+
+
+// Import the rest
+@import "bulma/bulma.sass";
