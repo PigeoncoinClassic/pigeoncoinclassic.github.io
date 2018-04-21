@@ -11,12 +11,10 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <p>
-        <a href=""><i class="fab fa-discord fa-4x"></i></a>
-        <a href=""><i class="fab fa-twitter fa-4x"></i></a>
-        <a href=""><i class="fab fa-github fa-4x"></i></a>
-        <a href=""><i class="fab fa-reddit fa-4x"></i></a>
-        <a href=""><i class="fab fa-telegram fa-4x"></i></a>
-        <a href=""><i class="fab fa-medium fa-4x"></i></a>
+        {% for link in site.social %}
+          <a href="{{link[1]}}"><i class="fab fa-{{link[0]}} fa-4x"></i></a>
+          &nbsp; &nbsp;
+        {% endfor %}
       </p>
     </div>
   </div>

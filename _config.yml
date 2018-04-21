@@ -1,22 +1,27 @@
 title: Pigeoncoin
 email: contact@pigeoncoin.org
-description: > # this means to ignore newlines until "twitter_username:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+tagline: Messaging and payments for everyone.
+description: >
+  Messaging and payments for everyone. Security by Blockchain.
+
+
+# config
+baseurl: /test # baseurl: null # when deployed to pigeoncoin.org
 
 # social links
-twitter_username: jekyllrb
-github_username:  jekyll
-rss: rss
-# dribbble_username: jekyll
-# facebook_username: jekyll
-# flickr_username: jekyll
-# instagram_username: jekyll
-# linkedin_username: jekyll
-# pinterest_username: jekyll
-# youtube_username: jekyll
-# googleplus_username: +jekyll
+social:
+    discord: https://discord.gg/SZcf63h
+    twitter: https://twitter.com/Pigeoncoin
+    github: https://github.com/Pigeoncoin
+    reddit: https://www.reddit.com/r/Pigeoncoin/
+    telegram: https://t.me/Pigeoncoin
+    medium: https://medium.com/@pigeoncoin
+
+# download links
+download:
+  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/Pigeon-Qt.dmg
+  windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/pigeoncoin-windows_v0.15.99.0.zip
+  linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/pigeoncoin-linux_v0.15.99.0.tar.gz
 
 # Mastodon instances
 # mastodon:
@@ -25,8 +30,8 @@ rss: rss
 # - username: jekyll2
 #   instance: example.com
 
-collections:
-- roadmap
+# collections:
+# - roadmap
 
 
 show_excerpts: false # set to true to show excerpts on the homepage
@@ -42,7 +47,7 @@ minima:
 # - about.html
 
 # Build settings
-theme: minima
+# theme: minima
 
 plugins:
  - jekyll-feed

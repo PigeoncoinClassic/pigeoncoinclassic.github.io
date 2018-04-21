@@ -16,9 +16,9 @@
       <!-- HERO body -->
       <div class="hero-body">
         <div class="container has-text-centered">
-          <img class="logo" src="/assets/img/icon5.svg" alt="">
+          <img class="logo" src="{{'/assets/img/icon.svg' | relative_url }}" alt="">
           <h2 class="subtitle">
-            Secure messaging and simple payments.
+            {{ site.tagline }}
           </h2>
         </div>
       </div>
@@ -31,10 +31,6 @@
     {%- include download.html -%}
 
     {%- include social.html -%}
-
-
-
-    {{ content }}
 
     {%- include footer.html -%}
 

@@ -10,19 +10,56 @@ roadmap:
     name: Launch
     details:
       - title: Stats page
-        date: null
-        content: >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        date: April 30, 2018
+        content: |
+          It is critical to have a stats page that is beautiful and easy to access.
 
-      - title: Core update
-        date: null
-        content: >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          We will begin by building a lightweight API server that will collect data from the Pigeoncoin blockchain, exchanges,
+          and coin listing sites. This server will then transform that data into useful, easy to read, information.
+
+          We've put together a prototype on the **Mining** page. It grabs data from Explorer and CryptoBridge, does some simple math,
+          and displays the important bits effortlessly. We like it a lot.
+
+          The graph is static for now, but we'll change that soon!
+
 
       - title: Software stack
-        date: null
-        content: >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        date: April 30, 2018
+        content: |
+          We have many projects lined up, as you can probably tell. It's important to us that we don't waste
+          any time, while being prepared for the future. The future includes a bespoke pool system, desktop wallet,
+          mobile wallet, and eventually a messaging network.
+
+          We looked far and wide, and tapped into our own experience, as well as consulted with some other professionals
+          in software development.
+
+          In the end, we settled on the venerable *MERN stack*.
+
+          |*Backend*|*Frontend*|*Mobile*|
+          |MongoDB|Bulma|React Native|
+          |Express|jQuery||
+          |Node.js|React||
+
+      - title: Core update
+        date: May 14, 2018
+        content: |
+          We have a very important update to Core wallet that will be released shortly.
+
+          **Security**
+          - OpenSSL upgrade
+          - Checkpoints
+          - TXdata
+
+          **Nitpicks**
+          - Copyright date
+
+          We haven't released it yet because we are finishing up our testing. So far so good!
+
+          These small fixes are not easy to see, but they give us all extra peace of mind.
+
+
+
+
 
 
   - project:

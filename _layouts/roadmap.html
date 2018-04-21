@@ -36,10 +36,12 @@ layout: default
         <h1 class="title is-hidden-desktop">{{ project.name }}</h1>
 
         {% for detail in project.details %}
-        <div id="{{ detail.title | downcase | replace:' ','-' }}" class="notification {% if detail.title != page.roadmap[0].details[0].title %}is-hidden-desktop{% endif %}">
-          <h2 class="subtitle">{{ detail.title }}</h2>
+        <div id="{{ detail.title | downcase | replace:' ','-' }}" class="notification is-2 {% if detail.title != page.roadmap[0].details[0].title %}is-hidden-desktop{% endif %}">
+          <h1 class="title is-4">{{ detail.title }}</h1>
+          {% if detail.date %}<h2 class="subtitle is-6"><em>{{ detail.date }}</em></h2>{% endif %}
+
           <div class="content">
-            {{ detail.content }}
+            {{ detail.content | markdownify}}
           </div>
         </div>
         {% endfor %}

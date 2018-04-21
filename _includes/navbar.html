@@ -1,5 +1,3 @@
-{%- assign default_paths = site.pages | sort: "weight" | map: "path" -%}
-{%- assign page_paths = site.header_pages | default: default_paths -%}
 
 
 <!-- NAVBAR -->
@@ -19,29 +17,22 @@
       <div class="navbar-start">
       </div>
       <div class="navbar-end">
-        {%- for path in page_paths -%}
-          {%- assign my_page = site.pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-          <a class="navbar-item" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-          {%- endif -%}
-        {%- endfor -%}
+        {% assign sorted_pages = site.pages | sort: 'weight'%}
 
-      <!--
-        <a href="index.html" class="navbar-item"><strong>Home</strong></a>
-        <a href="team.html" class="navbar-item">Team</a>
-        <a href="mining.html" class="navbar-item">Mining</a>
-        <a href="roadmap.html" class="navbar-item">Roadmap</a>
-        <a href="test.html" class="navbar-item"><i class="fab fa-discord fa-2x"></i></a>
-      -->
+        {% for p in sorted_pages %}
+          {% if p.title %}
+          <a class="navbar-item {% if p.title == page.title %}is-active{% endif %}" href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
+          {% endif %}
+        {% endfor %}
+
+        {% if site.social.discord %}
+          <a href="{{ site.social.discord }}" class="navbar-item"><i class="fab fa-discord fa-2x"></i></a>
+        {% endif%}
+
 
       </div>
     </div>
 </nav>
-
-
-
-
-
 
 {% comment %}
 <!--
