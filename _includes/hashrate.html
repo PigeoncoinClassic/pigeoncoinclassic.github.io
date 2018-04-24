@@ -9,14 +9,15 @@
 
 
 <script>
+
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"],
+            labels: [],
             datasets: [{
                 label: 'Hashrate',
-                data: [90, 150, 390, 170, 60, 120],
+                data: [],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -37,6 +38,9 @@
             }]
         },
         options: {
+            animation:{
+              duration:400
+            },
             tooltips: {
               enabled: false
             },
@@ -49,6 +53,11 @@
                     ticks: {
                         beginAtZero:true
                     }
+                }],
+                xAxes: [{
+                  ticks: {
+                      display: false
+                  }
                 }]
             }
         }

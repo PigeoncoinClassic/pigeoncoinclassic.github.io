@@ -1,57 +1,124 @@
 // http://youmightnotneedjquery.com/
 // http://callbackhell.com/
 
+var data = {}
 
 now(function(){
   // as soon as possible, do this!
-  getJSON("https://explorer.pigeoncoin.org/ext/summary", function(result){
-
-    var stats = {},
-        data = result.data[0];
-
-        stats.difficulty = Number(data.difficulty.toPrecision(3)),
-        stats.supply = Number((data.supply / 1e6).toPrecision(2)) + "M PGN",
-        stats.hashrate = Math.round(Number(data.hashrate).toPrecision(2)) + " GH",
-        stats.lastPrice = Number((data.lastPrice * 1e8).toPrecision(2)) + " sats",
-        stats.blockcount = Number(data.blockcount).toLocaleString(),
-        stats.nextblock = Number((2016-data.blockcount%2016)) + " blocks",
-        stats.marketcap = Number((data.supply * data.lastPrice).toPrecision(2)) + " BTC";
-
-      console.log(`stats: ${JSON.stringify(stats)}`)
-
-    updateElements(stats);
-  });
-
-  getJSON("https://api.crypto-bridge.org/api/v1/ticker",function(result){
-    for(i in result){
-      if(result[i].id == "PGN_BTC"){
-        var stats = {};
-        //stats.volume = "thing";
-
-        stats.volume = Number(Number(result[i].volume).toPrecision(2)) + " BTC";
-
-        updateElements(stats);
-      }
-    }
-
-
-  });
-
 });
 
 
 ready(function(){
   // when the DOM is ready, do this
+  main();
+  setInterval(function(){
+      main();
+  }, 1000*60*2);
+
   hamburgerHelper();
   menuHelper();
+  widgetHelper();
+
 
 });
 
 
+////////////////////////////////////////
+////////////////////////////////////////
+// updateChart
+
+
+function main(){
+  getJSON("https://explorer.pigeoncoin.org:8000", function(result){
+
+    data = result
+    var stats = {}
+
+    stats.price = result.price * 1e8 + " sat";
+    stats.volume = result.volume.toPrecision(2) + " BTC";
+    stats.supply = Number((result.supply / 1e6).toPrecision(2)) + "M PGN";
+    stats.hashrate = result.hashrate.toPrecision(2) + " GH";
+    stats.difficulty = Number(result.difficulty.toPrecision(2));
+    // stats.height =
+    stats.marketCap = result.marketCap.toPrecision(2) + " BTC";
+    stats.blockTime = result.blockTime.toPrecision(2) + " min";
+    stats.retarget = result.retarget + " blocks";
+
+    var array = []
+    for(item in data.history.price){
+      array.push(data.history.price[item] * 1e8)
+    }
+
+    data.history.price = array;
+
+    var array = []
+    for(item in data.history.supply){
+      array.push(data.history.supply[item] / 1e6)
+    }
+
+    data.history.supply = array;
+
+    console.log(`stats: ${JSON.stringify(stats)}`)
+
+    updateElements(stats);
+    updateChart(myChart, result.history.hashrate)
+  });
+}
+
+
+function updateChart(chart, array){
+  var count = 0
+  var labels = []
+
+  var array = array.filter(x => !!x); // filter falsy items
+
+  for(item in array){
+    labels.unshift(item);
+  }
+
+  chart.data.datasets[0].data = array
+  chart.data.labels = labels;
+  chart.update();
+}
+
+
 
 ////////////////////////////////////////
 ////////////////////////////////////////
-////////////////////////////////////////
+// menuHelper, hamburgerHelper
+
+function widgetHelper(key){
+  var els = document.querySelectorAll('#stats .notification');
+
+  Array.from(els).forEach(item => {
+      item.addEventListener('click', function(event) {
+        // remove class "is-primary" from all "#stats .is-primary"
+        var el = document.querySelector("#stats .is-primary");
+        if(el) el.classList.remove("is-primary");
+
+        // add class "is-primary" to this element
+        var el = event.target;
+        var key = null;
+
+        if(Array.from(el.classList).includes('notification')){
+          el.classList.add("is-primary");
+          key = el.lastElementChild.id
+        }
+        else{
+          el.parentElement.classList.add("is-primary");
+          key = el.parentElement.lastElementChild.id
+        }
+
+
+        console.log(data.history[key])
+        // updateChart
+        //var key =
+        updateChart(myChart, data.history[key])
+
+      });
+  });
+}
+
 
 function menuHelper(){
   // Bulma is really fast and simple
@@ -134,13 +201,14 @@ function hamburgerHelper(){
 
 ////////////////////////////////////////
 ////////////////////////////////////////
-////////////////////////////////////////
+// getJSON, updateElements
 
 function updateElements(object){
   // pass me an object with
   // keys: ids to update
   // values: values to update
   // and I will update everything on the page!
+    console.log(object)
 
     var keys = Object.keys(object),
         values = Object.values(object)
@@ -182,7 +250,7 @@ function getJSON(URL,callback){
 
 ////////////////////////////////////////
 ////////////////////////////////////////
-////////////////////////////////////////
+// now, ready
 
 function now(callback){
   callback();
