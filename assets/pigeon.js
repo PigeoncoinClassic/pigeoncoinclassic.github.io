@@ -61,7 +61,8 @@ function main(){
     console.log(`stats: ${JSON.stringify(stats)}`)
 
     updateElements(stats);
-    updateChart(myChart, result.history.hashrate)
+
+    if(!myChart.data.datasets[0].data.length) updateChart(myChart, result.history.hashrate);
   });
 }
 

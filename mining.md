@@ -1,6 +1,6 @@
 ---
-layout: mining
-title: Mining
-permalink: /mining/
+layout: stats
+title: Stats
+permalink: /stats/
 weight: 3
 ---
