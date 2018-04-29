@@ -5,7 +5,7 @@ layout: default
 
 <section class="section">
   <div class="columns">
-    <div class="column is-2 is-hidden-touch">
+    <div class="column is-narrow is-hidden-touch">
 
 
       <aside class="menu">
@@ -36,17 +36,32 @@ layout: default
         <h1 class="title is-hidden-desktop">{{ project.name }}</h1>
 
         {% for detail in project.details %}
+
         <div id="{{ detail.title | downcase | replace:' ','-' }}" class="notification is-2 {% if detail.title != page.roadmap[0].details[0].title %}is-hidden-desktop{% endif %}">
+
+          {% if detail.progress == 100 %}
+            {% assign progress_color = 'is-success' %}
+            {% assign progress_title = 'Complete' %}
+          {% elsif detail.progress >= 80 %}
+            {% assign progress_color = 'is-warning' %}
+            {% assign progress_title = detail.progress | append: "% completed. Due " | append: detail.date %}
+          {% else %}
+            {% assign progress_color = 'is-primary' %}
+            {% assign progress_title = detail.progress | append: "% completed. Due " | append: detail.date %}
+          {% endif %}
+
           <h1 class="title is-4">{{ detail.title }}</h1>
-          {% if detail.date %}<h2 class="subtitle is-6"><em>{{ detail.date }}</em></h2>{% endif %}
+          {% if detail.progress %}<progress class="progress {{ progress_color }}" value="{{ detail.progress }}" max="100">{{ detail.progress }}%</progress>{% endif %}
+          {% if detail.date %}<h2 class="subtitle is-6"><em>{{ progress_title }}</em></h2>{% endif %}
+
+          <hr>
 
           <div class="content">
             {{ detail.content | markdownify}}
           </div>
+
         </div>
         {% endfor %}
-
-
       {% endfor %}
     </div>
 

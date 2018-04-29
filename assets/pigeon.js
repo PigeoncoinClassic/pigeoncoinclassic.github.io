@@ -164,7 +164,7 @@ function menuHelper(){
         // get element text, make lowercase, replace space with "-"
 
         var el = event.target;
-        var text = el.innerText.toLowerCase().replace(" ","-").replace("\n","");
+        var text = el.innerText.toLowerCase().trim().split(" ").join("-");
 
 
         // remove class "is-hidden-desktop" to all '#content-holder link-text'

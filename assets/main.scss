@@ -24,7 +24,15 @@ $desktop:	896px + (2 * $gap);
   max-width:280px;
 }
 
+#team .column .card{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
+#team .column .card-footer{
+  margin-top: auto;
+}
 
 
 
