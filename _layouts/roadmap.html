@@ -46,7 +46,7 @@ layout: default
             {% assign progress_color = 'is-warning' %}
             {% assign progress_title = detail.progress | append: "% completed. Due " | append: detail.date %}
           {% else %}
-            {% assign progress_color = 'is-primary' %}
+            {% assign progress_color = 'is-info' %}
             {% assign progress_title = detail.progress | append: "% completed. Due " | append: detail.date %}
           {% endif %}
 

@@ -6,7 +6,7 @@
   <body>
 
     <!-- HERO -->
-    <section class="hero is-primary is-bold is-medium">
+    <section id="index-top-hero" class="hero is-primary is-medium">
       <div class="hero-head">
 
         {%- include navbar.html -%}
@@ -17,7 +17,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <img class="logo" src="{{'/assets/img/icon.svg' | relative_url }}" alt="">
-          <h2 class="subtitle">
+          <h1 class="subtitle">
             {{ site.tagline }}
           </h2>
         </div>
@@ -28,9 +28,10 @@
 
     {%- include stats.html -%}
 
-    {%- include download.html -%}
+    {%- include resources.html %}
 
-    {%- include social.html -%}
+    <section id="index-base-hero">
+    </section>
 
     {%- include footer.html -%}
 

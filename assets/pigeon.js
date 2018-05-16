@@ -34,14 +34,14 @@ function main(){
     data = result
     var stats = {}
 
-    stats.price = result.price * 1e8 + " sat";
-    stats.volume = result.volume.toPrecision(2) + " BTC";
+    stats.price = result.price * 1e8 + " sats";
+    stats.volume = Number(result.volume.toPrecision(2)) + " BTC";
     stats.supply = Number((result.supply / 1e6).toPrecision(2)) + "M PGN";
-    stats.hashrate = result.hashrate.toPrecision(2) + " GH";
+    stats.hashrate = Number(result.hashrate.toPrecision(2)) + " GH";
     stats.difficulty = Number(result.difficulty.toPrecision(2));
     // stats.height =
-    stats.marketCap = result.marketCap.toPrecision(2) + " BTC";
-    stats.blockTime = result.blockTime.toPrecision(2) + " min";
+    stats.marketCap = Number(result.marketCap.toPrecision(2)) + " BTC";
+    stats.blockTime = Number(result.blockTime.toFixed(1)) + " min";
     stats.retarget = result.retarget + " blocks";
 
     var array = []

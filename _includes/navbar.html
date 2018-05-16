@@ -9,11 +9,10 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ "/" | relative_url }}">
 
-        {% if page.title == 'Home' %}
-          {% assign logo_url = '/assets/img/logotype-on-blue.png' | relative_url %}
-        {% else %}
-          {% assign logo_url = '/assets/img/logotype-on-white.png' | relative_url %}
+        {% if page.title != 'Home' %}
+          {% assign logo_url = '/assets/img/badge.png' | relative_url %}
         {% endif%}
+        
         <img src="{{ logo_url }}">
       </a>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
