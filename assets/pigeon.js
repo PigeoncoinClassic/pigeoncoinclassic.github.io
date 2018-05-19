@@ -1,6 +1,6 @@
 // Initialize Firebase
 
-ready(main)
+onReady(main)
 
 function main(){
 
@@ -14,22 +14,69 @@ function main(){
   };
 
   firebase.initializeApp(config);
-
   const db = firebase.database()
-  const latestRef = db.ref('latestData')
 
+
+  // retreive any saved data
   try{
-    updateElements(JSON.parse(localStorage.savedData))
+    updateElements(JSON.parse(localStorage.latestData))
   }catch(e){/*we haven't stored any data yet*/}
+
+
+  // setup latestData listener
+  const latestRef = db.ref('latestData');
 
   latestRef.on('value', snap => {
     const latestData = snap.val()
     updateElements(latestData)
-    localStorage.savedData = JSON.stringify(latestData)
+
+    localStorage.latestData = JSON.stringify(latestData)
+    console.log(latestData)
+  })
+
+
+  // setup historyData listener
+  const historyRef = db.ref('historyData')
+
+  historyRef.limitToLast(24).on('value', snap => {
+    const historyData = snap.val()
+    parseHistoryData(historyData)
+    localStorage.historyData = JSON.stringify(historyData)
   })
 }
 
+
+// switch
+// widget id >> historyData key
+// create data array and label array
+// pass to updateChart
+
+function parseHistoryData(historyData, key){
+
+  console.log(historyData)
+}
+
+function updateChart(chart, array){
+  var count = 0
+  var labels = []
+
+  var array = array.filter(x => !!x); // filter falsy items
+
+  for(item in array){
+    labels.unshift(item);
+  }
+
+  chart.data.datasets[0].data = array
+  chart.data.labels = labels;
+  chart.update();
+}
+
+
+
+////////////////////
+
 function updateElements(result){
+
   // widgets
   updateElement('#priceBtc', Number((result.market.priceBtc*1e8).toPrecision(2)) + " sats")
   updateElement('#marketCapBtc', Number((result.market.marketCapBtc).toPrecision(2)) + " BTC")
@@ -41,23 +88,23 @@ function updateElements(result){
   updateElement('#volumeBtc', Number(result.market.volumeBtc.toPrecision(2)) + " BTC")
 
   // progress bars
-
-  // poolMiners value, max=1000
+    // poolMiners value, max=1000
   updateProgressBar('#poolMiners', result.pool.miners, 1000)
   updateElement('#poolMinersTag', Number(Math.round(result.pool.miners)))
 
-  // poolPayout
+    // poolPayout
   const lastPayout = Date.now()/1000/60-60
   updateProgressBar('#poolPayout', lastPayout % 180, 180)
   updateElement('#poolPayoutTag', `in ${Math.round(180 - lastPayout % 180)}m`)
 
-  // poolLastBlock value=minutesAgo, max=timeToFind*2
+    // poolLastBlock value=minutesAgo, max=timeToFind*2
   let minutesAgo = (Date.now()/1000 - result.pool.lastBlockTime)/60
   updateProgressBar('#poolLastBlock', minutesAgo, result.pool.timeToFind/60 * 2)
   updateElement('#poolLastBlockTag', `${Math.round(minutesAgo)}m ago`)
-  console.log(result.pool.timeToFind*2)
 
-  console.log(result)
+  // charts
+
+
 }
 
 function updateElement(selector, htmlValue){
@@ -65,7 +112,6 @@ function updateElement(selector, htmlValue){
   if(element){
     element.innerHTML = htmlValue
   }
-  // document.querySelector(selector).innerHTML = htmlValue
 }
 
 function updateProgressBar(selector, value, max){
@@ -74,9 +120,10 @@ function updateProgressBar(selector, value, max){
     element.value = value
     element.max = max
   }
-  // document.querySelector(selector).value = value
-  // document.querySelector(selector).max = max
 }
+
+
+
 
 ////////////////
 //
@@ -101,7 +148,7 @@ function updateProgressBar(selector, value, max){
 
 ////////////////
 
-function ready(callback) {
+function onReady(callback) {
 
   if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
     fn();
@@ -291,23 +338,22 @@ function ready(callback) {
 //   });
 // }
 //
-// function hamburgerHelper(){
-//   // Bulma is really fast and simple
-//   // its hamburger needs help.
-//   // I am the hamburger helper
-//
-//     document.querySelector('.navbar-burger').addEventListener("click", toggleNav);
-//
-//     function toggleNav() {
-//             var nav = document.querySelector('.navbar-menu');
-//
-//             if(nav.className == "navbar-menu") {
-//                 nav.className = "navbar-menu is-active";
-//             } else {
-//                 nav.className = "navbar-menu";
-//             }
-//     }
-// }
+
+// help bulma's hamburger
+function hamburgerHelper(){
+  document.querySelector('.navbar-burger').addEventListener("click", toggleNav);
+
+  function toggleNav() {
+    const nav = document.querySelector('.navbar-menu');
+
+    if(nav.className == "navbar-menu") {
+      nav.className = "navbar-menu is-active";
+    } else {
+      nav.className = "navbar-menu";
+    }
+  }
+}
+
 //
 //
 //
