@@ -25,19 +25,14 @@ onReady(()=>{
   const db = firebase.database()
 
   // set up listeners
-  //    state change
-  //    latestData firebase
   latestDataListener(db)
-  //    historyData firebase
   historyDataListener(db)
 
   // set up helpers
-  //    widget click
-  graphHelper()
-  //    hamburger click
+  statsWidgetHelper()
   hamburgerHelper()
-  //    roadmap menu click
-  menuHelper()
+  roadmapMenuHelper()
+
   // set state to localStorage state
   if(localStorage.state){
     setState(JSON.parse(localStorage.state))
@@ -61,26 +56,26 @@ function stateListener(){
 
 }
 
-//    latestData (value) firebase
-//      set state
 function latestDataListener(db){
+  // listen for latestData
   const ref = db.ref('latestData')
 
   ref.on('value', snap => {
     const latestData = snap.val()
+    // setState
     setState({
       latestData
     })
   })
 }
 
-//    historyData (value) firebase
-//      set state
 function historyDataListener(db){
+  // listen for historyData
   const ref = db.ref('historyData')
 
   ref.on('value', snap => {
     const historyData = snap.val()
+    // setState
     setState({
       historyData
     })
@@ -91,13 +86,14 @@ function historyDataListener(db){
 
 // updaters
 
-//    set state
-
 function setState(object){
-  state = Object.assign(state, object)  // set state
-  localStorage.state = (JSON.stringify(state)) // persist state
+  // set global state
+  state = Object.assign(state, object)
 
-  // trigger the stateListener
+  // persist global state
+  localStorage.state = (JSON.stringify(state))
+
+  // trigger stateListener
   stateListener()
 }
 
@@ -118,15 +114,15 @@ function setState(object){
 
 // helpers
 
-//    widget click
-//      set state.graphSelected
-
-function graphHelper(){
+function statsWidgetHelper(){
+  // find all graph widgets
   var els = document.querySelectorAll('#graph-widgets .notification');
 
+  // tell them all to wait for a click
   Array.from(els).forEach(el => {
     el.addEventListener('click', function() {
       let graphState = this.getAttribute('data-id')
+      // then set graphState
       setState({
         graphState
       })
@@ -134,16 +130,15 @@ function graphHelper(){
   })
 }
 
-
-//    roadmap menu
-//      set state.roadmapMenu
-
-function menuHelper(){
+function roadmapMenuHelper(){
+  // find all roadmap menu items
   var els = document.querySelectorAll('#roadmap-menu .menu-list a');
 
+  // tell them all to wait for a click
   Array.from(els).forEach(el => {
     el.addEventListener('click', function() {
       let roadmapState = this.getAttribute('data-id')
+      // then set roadmapState
       setState({
         roadmapState
       })
@@ -151,66 +146,15 @@ function menuHelper(){
   })
 }
 
-
-//   // remove class "is-active" from all ".menu-list a"
-//   var el = document.querySelector("#roadmap-menu .menu-list .is-active");
-//
-//   if (el.classList)
-//     el.classList.remove("is-active");
-//   else
-//     el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-//
-//
-//   // add class "is-active" to this element
-//   var el = event.target;
-//
-//   if (el.classList)
-//     el.classList.add("is-active");
-//   else
-//     el.className += ' ' + "is-active";
-//
-//
-//   // add class "is-hidden-desktop" to all '#content-holder div'
-//
-//   var els = document.querySelectorAll('#content-holder .notification');
-//
-//   Array.from(els).forEach(el => {
-//
-//       if (el.classList)
-//         el.classList.add("is-hidden-desktop");
-//       else
-//         el.className += ' ' + "is-hidden-desktop";
-//     });
-//
-//
-//   // get element text, make lowercase, replace space with "-"
-//
-//   var el = event.target;
-//   var text = el.innerText.toLowerCase().trim().split(" ").join("-");
-//
-//
-//   // remove class "is-hidden-desktop" to all '#content-holder link-text'
-//
-//   var el = document.querySelector("#" + text);
-//
-//   if (el.classList)
-//     el.classList.remove("is-hidden-desktop");
-//   else
-//     el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-
-
-
-
-
-
-//    hamburger helper
-//      toggle hide/show mobile menu
 function hamburgerHelper(){
+  // find the hamburger and tell them to toggleNav
   document.querySelector('.navbar-burger').addEventListener("click", toggleNav)
 
   function toggleNav() {
+    // find the menu
     const nav = document.querySelector('.navbar-menu')
 
+    // toggle is-active
     if(nav.className == "navbar-menu") {
       nav.className = "navbar-menu is-active"
     } else {
@@ -219,10 +163,10 @@ function hamburgerHelper(){
   }
 }
 
-//    onReady
 function onReady(callback) {
+  // when the document is ready, callback
   if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
-    fn();
+    callback;
   } else {
     document.addEventListener('DOMContentLoaded', callback);
   }
