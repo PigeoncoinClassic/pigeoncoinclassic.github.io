@@ -218,13 +218,6 @@ function updateGraph(){
   }
 }
 
-
-
-//    update roadmap
-//      hide all visible items .is-hidden-desktop
-//      show matching item
-//      remove all .is-active
-
 function updateRoadmap(){
   const dataId = state.roadmapState
 
@@ -264,6 +257,8 @@ function updateRoadmap(){
     if(el) el.classList.remove('is-hidden-desktop')
   }
 }
+
+
 
 // helpers
 
@@ -315,6 +310,7 @@ function hamburgerHelper(){
     }
   }
 }
+
 
 
 // core utilities
