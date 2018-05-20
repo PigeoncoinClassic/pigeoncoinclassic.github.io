@@ -4,15 +4,15 @@
 
 <section class="section">
   <div class="container is-fluid" style="height:35vw">
-    <canvas id="myChart"></canvas>
+    <canvas id="statsGraph"></canvas>
   </div>
 </section>
 
 
 <script>
 
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
+    var ctx = document.getElementById("statsGraph").getContext('2d');
+    var statsGraph = new Chart(ctx, {
         type: 'line',
         data: {
             labels: [],
@@ -60,7 +60,6 @@
                     type: 'time',
                     time: {
                         unit: 'hour',
-                        unitStepSize: 1,
                         displayFormats: {
                             'day': 'HH'
                         }},
