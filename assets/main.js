@@ -30,8 +30,8 @@ onReady(()=>{
 
   // set up helpers
   statsWidgetHelper()
-  hamburgerHelper()
   roadmapMenuHelper()
+  hamburgerHelper()
 
   // set state to localStorage state
   if(localStorage.state){
@@ -48,10 +48,13 @@ onReady(()=>{
 //      update widgets
 //      update graph
 //      update roadmap menu
-//      save to localStorage
+//      update progress bars
+
 function stateListener(){
   // new state!
   console.log(state)
+
+  updateAllWidgets()
 
 
 }
@@ -86,30 +89,34 @@ function historyDataListener(db){
 
 // updaters
 
-function setState(object){
-  // set global state
-  state = Object.assign(state, object)
+function updateAllWidgets(){
+  // update all widgets with proper data format
+  updateWidget('chain-hashrate', +(state.latestData.chain.hashrate / 1e9).toPrecision(2) + ' GH')
+  updateWidget('chain-difficulty', +state.latestData.chain.difficulty.toPrecision(3) )
+  updateWidget('chain-blockTime', (state.latestData.chain.blockTime / 60).toFixed(1) + ' min' )
+  updateWidget('chain-retarget', state.latestData.chain.retarget)
+  updateWidget('market-priceBtc', Math.round(state.latestData.market.priceBtc * 1e8) + ' sats')
+  updateWidget('market-volumeBtc', state.latestData.market.volumeBtc.toFixed(1) + ' BTC')
+  updateWidget('market-marketCapBtc', Math.round(state.latestData.market.marketCapBtc) + ' BTC')
+  updateWidget('chain-supply', +(state.latestData.chain.supply / 1e6).toPrecision(2) + 'M PGN')
 
-  // persist global state
-  localStorage.state = (JSON.stringify(state))
-
-  // trigger stateListener
-  stateListener()
+  function updateWidget(dataId, newData){
+    // find a widget by dataId, give it newData!
+    const el = document.querySelector(`[data-id=${dataId}] .title`)
+    if(el){
+      el.innerHTML = newData
+    }
+  }
 }
 
-
-//    update widgets
-
 //    update graph
+
+//      highlight widget
 
 //    update roadmap
 //      hide all visible items .is-hidden-desktop
 //      show matching item
 //      remove all .is-active
-
-
-
-
 
 
 // helpers
@@ -161,6 +168,20 @@ function hamburgerHelper(){
       nav.className = "navbar-menu"
     }
   }
+}
+
+
+// core utilities
+
+function setState(object){
+  // set global state
+  state = Object.assign(state, object)
+
+  // persist global state
+  localStorage.state = (JSON.stringify(state))
+
+  // trigger stateListener
+  stateListener()
 }
 
 function onReady(callback) {
