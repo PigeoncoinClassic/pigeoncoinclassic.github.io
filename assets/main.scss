@@ -87,5 +87,11 @@ $desktop:	896px + (2 * $gap);
 }
 
 
+
+#graph-widgets .notification{
+  cursor:pointer;
+}
+
+
 // Import the rest
 @import "bulma/bulma.sass";
