@@ -55,7 +55,7 @@ function stateListener(){
   console.log(state)
 
   updateAllWidgets()
-
+  activateWidget(state.graphState)
 
 }
 
@@ -106,6 +106,27 @@ function updateAllWidgets(){
     if(el){
       el.innerHTML = newData
     }
+  }
+}
+
+function activateWidget(dataId){
+
+  hideAllWidgets()
+  highlightWidget(dataId)
+
+  function hideAllWidgets(){
+    // select all widgets
+    const els = document.querySelectorAll(`#graph-widgets .notification`)
+    Array.from(els).forEach(el => {
+      // remove class is-primary
+      el.classList.remove('is-primary')
+    })
+  }
+
+  function highlightWidget(dataId){
+    // find dataId, add class id-primary
+    const el = document.querySelector(`#graph-widgets [data-id="${dataId}"]`)
+    el.classList.add('is-primary')
   }
 }
 
