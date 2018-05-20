@@ -1,5 +1,9 @@
 // global state object
-var state = {}
+// set default state
+var state = {
+  graphState:'chain-hashrate',
+  roadmapState:'KURZ'
+}
 
 // var statsGraph is defined in the body of chart.html
 
@@ -36,17 +40,12 @@ onReady(()=>{
   // set state to localStorage state
   if(localStorage.state){
     setState(JSON.parse(localStorage.state))
-  }else{
-    // todo set default state for widget and roadmap menu
   }
-
 })
 
 
 
 // listeners
-
-//      update roadmap menu
 
 function stateListener(){
   // new state!
@@ -54,14 +53,16 @@ function stateListener(){
 
   // update widgets
   updateAllWidgets()
-  activateWidget(state.graphState)
+  activateWidget()
 
   // update graph
   if(typeof statsGraph !== 'undefined') updateGraph()
-  
+
   // update progress bars
   updateMiningPool()
 
+  // update roadmap
+  updateRoadmap()
 }
 
 function latestDataListener(db){
@@ -116,7 +117,8 @@ function updateAllWidgets(){
   }
 }
 
-function activateWidget(dataId){
+function activateWidget(){
+  const dataId = state.graphState
 
   hideAllWidgets()
   highlightWidget(dataId)
@@ -215,11 +217,53 @@ function updateGraph(){
     chart.update();
   }
 }
+
+
+
 //    update roadmap
 //      hide all visible items .is-hidden-desktop
 //      show matching item
 //      remove all .is-active
 
+function updateRoadmap(){
+  const dataId = state.roadmapState
+
+  hideAllContent()
+  showContentItem(dataId)
+
+  hideAllMenus()
+  showMenuItem(dataId)
+
+  function hideAllMenus(){
+    // select all menu items
+    const els = document.querySelectorAll(`#roadmap-menu a`)
+    Array.from(els).forEach(el => {
+      // add class is-hidden-desktop
+      if(el) el.classList.remove('is-active')
+    })
+  }
+
+  function showMenuItem(dataId){
+    // find dataId, add class id-primary
+    const el = document.querySelector(`#roadmap-menu [data-id="${dataId}"]`)
+    if(el) el.classList.add('is-active')
+  }
+
+  function hideAllContent(){
+    // select all notifications
+    const els = document.querySelectorAll(`#roadmap-content .notification`)
+    Array.from(els).forEach(el => {
+      // add class is-hidden-desktop
+      if(el) el.classList.add('is-hidden-desktop')
+    })
+  }
+
+  function showContentItem(dataId){
+    // find dataId, add class id-primary
+    const el = document.querySelector(`#roadmap-content [data-id="${dataId}"]`)
+    if(el) el.classList.remove('is-hidden-desktop')
+  }
+}
 
 // helpers
 

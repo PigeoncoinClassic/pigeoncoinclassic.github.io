@@ -8,7 +8,7 @@ layout: default
     <div class="column is-narrow is-hidden-touch">
 
 
-      <aside id="roadmap-menu" class="menu">
+      <aside id="roadmap-menu" class="menu is-unselectable">
 
         {% for project in page.roadmap %}
           <p class="menu-label">
@@ -37,7 +37,7 @@ layout: default
 
         {% for detail in project.details %}
 
-        <div data-id="{{ detail.id }}" class="notification is-2">
+        <div data-id="{{ detail.id }}" class="notification is-2 is-hidden-desktop">
 
           {% if detail.progress == 100 %}
             {% assign progress_color = 'is-success' %}
