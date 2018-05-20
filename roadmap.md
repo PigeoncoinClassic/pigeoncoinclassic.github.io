@@ -11,6 +11,7 @@ roadmap:
 
     details:
       - title: Stats page
+        id: KURZ
         date: April 30, 2018
         progress: 100
         content: |
@@ -28,6 +29,7 @@ roadmap:
 
 
       - title: Software stack
+        id: WKWF
         date: April 30, 2018
         progress: 100
         content: |
@@ -47,6 +49,7 @@ roadmap:
 
 
       - title: Wallet update
+        id: WADI
         date: May 14, 2018
         progress: 90
         content: |
@@ -67,6 +70,7 @@ roadmap:
 
 
       - title: Bitcoin upstream
+        id: KFSH
         date: January 1, 2019
         progress: 20
         content: |
@@ -85,6 +89,7 @@ roadmap:
     details:
 
       - title: Overview
+        id: WEML
         date: August 22, 2018
         progress: 20
         content: |
@@ -110,6 +115,7 @@ roadmap:
 
 
       - title: Terahash backend
+        id: KIKS
         date: June 31, 2018
         progress: 30
         content: |
@@ -126,6 +132,7 @@ roadmap:
 
 
       - title: Realtime frontend
+        id: WYZX
         date: July 31, 2018
         progress: 10
         content: |
@@ -141,6 +148,7 @@ roadmap:
     details:
 
       - title: Goals
+        id: KRNS
         date: November 1, 2018
         progress: 10
         content: |
@@ -160,6 +168,7 @@ roadmap:
 
 
       - title: Data burn
+        id: KSRR
         date: August 1, 2018
         progress: 5
         content: |
@@ -175,6 +184,7 @@ roadmap:
 
 
       - title: Posting
+        id: WGIG
         date: September 1, 2018
         progress: 5
         content: |
@@ -188,6 +198,7 @@ roadmap:
 
 
       - title: Messaging
+        id: KUYO
         date: October 1, 2018
         progress: 5
         content: |
@@ -199,6 +210,7 @@ roadmap:
 
 
       - title: Payments
+        id: KLWI
         date: January 1, 2019
         progress: 5
         content: |
@@ -208,6 +220,7 @@ roadmap:
 
 
       - title: Verified users
+        id: WTAC
         date: TBD
         progress: 5
         content: |

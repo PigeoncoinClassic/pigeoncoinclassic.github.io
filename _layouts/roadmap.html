@@ -8,7 +8,7 @@ layout: default
     <div class="column is-narrow is-hidden-touch">
 
 
-      <aside class="menu">
+      <aside id="roadmap-menu" class="menu">
 
         {% for project in page.roadmap %}
           <p class="menu-label">
@@ -17,7 +17,7 @@ layout: default
 
           <ul class="menu-list">
             {% for detail in project.details %}
-            <li><a class="{% if detail.title == page.roadmap[0].details[0].title %}is-active{% endif %}">{{ detail.title }}</a></li>
+            <li><a data-id="{{ detail.id }}">{{ detail.title }}</a></li>
             {% endfor %}
           </ul>
 
@@ -29,7 +29,7 @@ layout: default
     </div>
 
 
-    <div id="content-holder" class="column">
+    <div id="roadmap-content" class="column">
 
       {% for project in page.roadmap %}
 
@@ -37,7 +37,7 @@ layout: default
 
         {% for detail in project.details %}
 
-        <div id="{{ detail.title | downcase | replace:' ','-' }}" class="notification is-2 {% if detail.title != page.roadmap[0].details[0].title %}is-hidden-desktop{% endif %}">
+        <div data-id="{{ detail.id }}" class="notification is-2">
 
           {% if detail.progress == 100 %}
             {% assign progress_color = 'is-success' %}
