@@ -3,6 +3,7 @@
 onReady(main)
 
 function main(){
+  hamburgerHelper()
 
   const config = {
     apiKey: "AIzaSyDSb7CJlXlzJjQPE9IRVRTZpCjeJwAgk54",
@@ -19,6 +20,8 @@ function main(){
 
   // retreive any saved data
   try{
+    //todo push chart on startup
+    //todo recall state of stats page on startup (which widget highlighted?)
     updateElements(JSON.parse(localStorage.latestData))
   }catch(e){/*we haven't stored any data yet*/}
 
@@ -28,10 +31,11 @@ function main(){
 
   latestRef.on('value', snap => {
     const latestData = snap.val()
-    updateElements(latestData)
 
     localStorage.latestData = JSON.stringify(latestData)
     console.log(latestData)
+
+    updateElements(latestData)
   })
 
 
@@ -40,70 +44,110 @@ function main(){
 
   historyRef.limitToLast(24).on('value', snap => {
     const historyData = snap.val()
-    parseHistoryData(historyData)
     localStorage.historyData = JSON.stringify(historyData)
+    console.log(historyData)
+    widgetHelper(historyData)
+    // todo update the current chart when new data arrives
+    // todo make sure to not put up two+ handlers on each widget, it will happen!
   })
 }
 
+///////////////////////
 
-// switch
-// widget id >> historyData key
-// create data array and label array
-// pass to updateChart
 
-function parseHistoryData(historyData, key){
+function widgetHelper(historyData){
+  var els = document.querySelectorAll('#stats .notification');
 
-  console.log(historyData)
+  Array.from(els).forEach(item => {
+      item.addEventListener('click', function(event) {
+        // remove class "is-primary" from all "#stats .is-primary"
+        let el = document.querySelector("#stats .is-primary");
+        if(el) el.classList.remove("is-primary");
+
+        // add class "is-primary" to this element
+        let target = event.target;
+        let id = null;
+
+        if(Array.from(target.classList).includes('notification')){
+          target.classList.add("is-primary");
+          id = target.lastElementChild.id
+          console.log('one')
+        }
+        else{
+          console.log('two')
+          target.parentElement.classList.add("is-primary");
+          id = target.parentElement.lastElementChild.id
+        }
+
+        console.log(id)
+
+        updateChart(historyData, id)
+
+      });
+  });
 }
 
-function updateChart(chart, array){
-  var count = 0
-  var labels = []
 
-  var array = array.filter(x => !!x); // filter falsy items
+function updateChart(historyData, id){
+  const chart = myChart // this is from stats.html body
+  const data = []
+  const labels = []
+  let k = 1
 
-  for(item in array){
-    labels.unshift(item);
+  if(id === 'chain-hashrate') k = 1e-9
+  if(id === 'chain-blockTime') k = 1/60
+  if(id === 'market-priceBtc') k = 1e8
+  if(id === 'chain-supply') k = 1e-6
+
+  let [topChild, child] = id.split('-')
+  console.log({topChild, child})
+
+
+  for(value of Object.values(historyData)){
+    if(child === 'retarget'){
+      data.push(2016 - value.chain.height % 2016)
+    }
+    else{
+      data.push(value[topChild][child] * k )
+    }
+    labels.push(value[topChild]['timestamp']*1000) // do it in miliseconds
   }
 
-  chart.data.datasets[0].data = array
+  console.log({data, labels})
+
   chart.data.labels = labels;
+  chart.data.datasets[0].data = data
   chart.update();
 }
-
-
 
 ////////////////////
 
 function updateElements(result){
 
   // widgets
-  updateElement('#priceBtc', Number((result.market.priceBtc*1e8).toPrecision(2)) + " sats")
-  updateElement('#marketCapBtc', Number((result.market.marketCapBtc).toPrecision(2)) + " BTC")
-  updateElement('#supply', Number((result.chain.supply/1e6).toPrecision(2)) + "M PGN")
-  updateElement('#hashrate', Number((result.chain.hashrate/1e9).toPrecision(2)) + " GH")
-  updateElement('#difficulty', Number(result.chain.difficulty.toPrecision(3)))
-  updateElement('#blockTime', Number((result.chain.blockTime/60).toFixed(1)) + " min")
-  updateElement('#retarget', Number((2016 - result.chain.height % 2016)) + " blocks")
-  updateElement('#volumeBtc', Number(result.market.volumeBtc.toPrecision(2)) + " BTC")
+  updateElement('#market-priceBtc', Number((result.market.priceBtc*1e8).toPrecision(2)) + " sats")
+  updateElement('#market-marketCapBtc', Number((result.market.marketCapBtc).toPrecision(2)) + " BTC")
+  updateElement('#chain-supply', Number((result.chain.supply/1e6).toPrecision(2)) + "M PGN")
+  updateElement('#chain-hashrate', Number((result.chain.hashrate/1e9).toPrecision(2)) + " GH")
+  updateElement('#chain-difficulty', Number(result.chain.difficulty.toPrecision(3)))
+  updateElement('#chain-blockTime', Number((result.chain.blockTime/60).toFixed(1)) + " min")
+  updateElement('#chain-retarget', Number((2016 - result.chain.height % 2016)) + " blocks")
+  updateElement('#market-volumeBtc', Number(result.market.volumeBtc.toPrecision(2)) + " BTC")
 
   // progress bars
     // poolMiners value, max=1000
-  updateProgressBar('#poolMiners', result.pool.miners, 1000)
-  updateElement('#poolMinersTag', Number(Math.round(result.pool.miners)))
+  updateProgressBar('#pool-miners', result.pool.miners, 1000)
+  updateElement('#pool-minersTag', Number(Math.round(result.pool.miners)))
 
     // poolPayout
   const lastPayout = Date.now()/1000/60-60
-  updateProgressBar('#poolPayout', lastPayout % 180, 180)
-  updateElement('#poolPayoutTag', `in ${Math.round(180 - lastPayout % 180)}m`)
+  updateProgressBar('#pool-nextPayout', lastPayout % 180, 180)
+  updateElement('#pool-nextPayoutTag', `in ${Math.round(180 - lastPayout % 180)}m`)
 
     // poolLastBlock value=minutesAgo, max=timeToFind*2
   let minutesAgo = (Date.now()/1000 - result.pool.lastBlockTime)/60
-  updateProgressBar('#poolLastBlock', minutesAgo, result.pool.timeToFind/60 * 2)
-  updateElement('#poolLastBlockTag', `${Math.round(minutesAgo)}m ago`)
-
-  // charts
-
+  updateProgressBar('#pool-lastBlock', minutesAgo, result.pool.timeToFind/60 * 2)
+  updateElement('#pool-lastBlockTag', `${Math.round(minutesAgo)}m ago`)
 
 }
 
@@ -122,6 +166,35 @@ function updateProgressBar(selector, value, max){
   }
 }
 
+
+
+////////////////
+
+// help bulma's hamburger
+function hamburgerHelper(){
+  document.querySelector('.navbar-burger').addEventListener("click", toggleNav);
+
+  function toggleNav() {
+    const nav = document.querySelector('.navbar-menu');
+
+    if(nav.className == "navbar-menu") {
+      nav.className = "navbar-menu is-active";
+    } else {
+      nav.className = "navbar-menu";
+    }
+  }
+}
+
+////////////////
+
+function onReady(callback) {
+
+  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', callback);
+  }
+}
 
 
 
@@ -144,19 +217,6 @@ function updateProgressBar(selector, value, max){
 //       }
 //     }
 // }
-
-
-////////////////
-
-function onReady(callback) {
-
-  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', callback);
-  }
-}
-
 
 
 // var data = {}
@@ -339,20 +399,6 @@ function onReady(callback) {
 // }
 //
 
-// help bulma's hamburger
-function hamburgerHelper(){
-  document.querySelector('.navbar-burger').addEventListener("click", toggleNav);
-
-  function toggleNav() {
-    const nav = document.querySelector('.navbar-menu');
-
-    if(nav.className == "navbar-menu") {
-      nav.className = "navbar-menu is-active";
-    } else {
-      nav.className = "navbar-menu";
-    }
-  }
-}
 
 //
 //

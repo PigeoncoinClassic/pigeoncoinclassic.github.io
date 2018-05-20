@@ -1,4 +1,5 @@
 <!-- HASHRATE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
 <section class="section">
@@ -56,9 +57,16 @@
                     }
                 }],
                 xAxes: [{
-                  ticks: {
-                      display: false
-                  }
+                    type: 'time',
+                    time: {
+                        unit: 'hour',
+                        unitStepSize: 1,
+                        displayFormats: {
+                            'day': 'HH'
+                        }},
+                    ticks: {
+                        display: true
+                    }
                 }]
             }
         }
