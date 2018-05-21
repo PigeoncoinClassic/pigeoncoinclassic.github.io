@@ -1,7 +1,7 @@
 ---
 layout: roadmap
-title: Roadmap
-permalink: /roadmap/
+title: Help
+permalink: /help/
 weight: 9
 
 roadmap:

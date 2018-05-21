@@ -91,5 +91,16 @@ $desktop:	896px + (2 * $gap);
 }
 
 
+#quarterly .column .notification{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#quarterly .level{
+
+}
+
+
 // Import the rest
 @import "bulma/bulma.sass";

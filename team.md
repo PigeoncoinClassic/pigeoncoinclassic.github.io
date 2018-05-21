@@ -93,8 +93,8 @@ team:
         Alex is a web developer with illustration and social media marketing experience. When he's not working on our social media marketing plan, he's probably brushing up on front end development, or practicing for his next motocross race.
 
 
-    - name: Leo van Haaren
-      title: Fullstack Developer
+    - name: Matt Feinstein
+      title: Embedded Systems
       img: /assets/img/team/dog-1.jpg
       social:
         firstPlatform: discord
@@ -102,7 +102,7 @@ team:
         secondPlatform: discord
         secondURL: https://discord.gg/SZcf63h
       text: >
-        Leo is a fullstack web developer who specializes in Javascript development. His experience writing web applications translates perfectly into developing the Pigeon social media network.
+        Matt's experience with emebedded systems and eletrical engineering makes him perfectly suited to assist us with FPGA research. Matt loves neck scratchies and old Navy manuals that discuss the design of analog AC circuits.
 
 
 

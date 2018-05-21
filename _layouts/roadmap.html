@@ -41,13 +41,13 @@ layout: default
 
           {% if detail.progress == 100 %}
             {% assign progress_color = 'is-success' %}
-            {% assign progress_title = 'Complete' %}
+            {% assign progress_title = 'Completed, was due ' | append: detail.date %}
           {% elsif detail.progress >= 80 %}
             {% assign progress_color = 'is-warning' %}
-            {% assign progress_title = detail.progress | append: "% completed. Due " | append: detail.date %}
+            {% assign progress_title = detail.progress | append: "% complete. Due " | append: detail.date %}
           {% else %}
             {% assign progress_color = 'is-info' %}
-            {% assign progress_title = detail.progress | append: "% completed. Due " | append: detail.date %}
+            {% assign progress_title = detail.progress | append: "% complete. Due " | append: detail.date %}
           {% endif %}
 
           <h1 class="title is-4">{{ detail.title }}</h1>
