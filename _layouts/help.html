@@ -12,7 +12,7 @@ layout: default
 
         {% for project in page.roadmap %}
           <p class="menu-label">
-            {{ project.name }}
+            {{ project.title }}
           </p>
 
           <ul class="menu-list">
@@ -32,8 +32,10 @@ layout: default
     <div id="roadmap-content" class="column">
 
       {% for project in page.roadmap %}
-
-        <h1 class="title is-hidden-desktop">{{ project.name }}</h1>
+        <section class="section is-hidden-desktop">
+          <h1 class="title">{{ project.title }}</h1>
+          <h2 class="subtitle">{{ project.subtitle }}</h2>
+        </section>
 
         {% for detail in project.details %}
 

@@ -1,13 +1,14 @@
 ---
-layout: roadmap
+layout: help
 title: Help
 permalink: /help/
-weight: 9
+weight: 8
 
 roadmap:
 
   - project:
-    name: General
+    title: General
+    subtitle: Subtitle
 
     details:
       - title: Stats page
@@ -84,7 +85,8 @@ roadmap:
 
 
   - project:
-    name: Terahash Pool
+    title: Terahash Pool
+    subtitle: Subtitle
 
     details:
 
@@ -143,7 +145,8 @@ roadmap:
 
 
   - project:
-    name: Pigeon Beta
+    title: Pigeon Beta
+    subtitle: Subtitle
 
     details:
 
