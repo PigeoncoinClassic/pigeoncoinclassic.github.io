@@ -13,7 +13,7 @@ layout: default
 
   {% for person in group.people %}
     <div class="column is-half-tablet is-one-third-desktop is-one-quarter-widescreen">
-      <div class="card">
+      <div class="card columns-are-same-height">
         <div class="card-image">
           <figure class="image is-square">
             <img src="{{ person.img | relative_url}}" alt="">
