@@ -33,6 +33,18 @@ team:
         Gabriel's education in architecture and experience in assisting crypto projects over the last year has provided him with a keen sense for user experience in blockchain. He is responsible for all forms of outreach including exchange and wallet listings.
 
 
+    - name: Todd Embleton
+      title: Fullstack Developer
+      img: /assets/img/team/todd-embleton.jpg
+      social:
+        firstPlatform: discord
+        firstURL: https://discord.gg/SZcf63h
+        secondPlatform: discord
+        secondURL: https://discord.gg/SZcf63h
+      text: >
+        Todd is responsible for designing and building the backend for Terahash Pool. His career in Java development has proven invaluable as we move forward on both blockchain, GPU miner, and web app development.
+
+
     - name: Kevin Kolart
       title: Brand Design
       img: /assets/img/team/kevin-kolart.jpg
@@ -67,18 +79,6 @@ team:
         secondURL: https://discord.gg/SZcf63h
       text: >
         After years of experience in finance, Zech decided to transition into cryptocurrency development. He joined the team so that he could assist the community while preparing himself to provide development support.
-
-
-    - name: Todd Embleton
-      title: Fullstack Developer
-      img: /assets/img/team/todd-e.jpg
-      social:
-        firstPlatform: discord
-        firstURL: https://discord.gg/SZcf63h
-        secondPlatform: discord
-        secondURL: https://discord.gg/SZcf63h
-      text: >
-        Todd is responsible for designing and building the backend for Terahash Pool. His career in Java development has proven invaluable as we move forward on both blockchain, GPU miner, and web app development. He likes long walks in the park and Object Oriented Programming.
 
 
     - name: Alex Ellis

@@ -57,7 +57,7 @@ roadmap:
         tags:
           - OpenSSL
           - checkpoints
-          - difficulty
+          - investigate difficulty
         content: |
           Secure the wallet with the latest version of OpenSSL. Update checkpoints to prevent blockchain branching. Investigate difficulty algorithms.
 
@@ -164,6 +164,7 @@ roadmap:
         tags:
           - BTC
           - USD
+          - EUR
         content: |
           Currency fluency is a top priority. We will work towards full liquidity with major fiat currencies, positioning Pigeon as a worldwide intermediary currency that is available to the general public.
 
