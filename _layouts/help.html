@@ -6,64 +6,36 @@ layout: default
 <section class="section">
   <div class="columns">
     <div class="column is-narrow is-hidden-touch">
-
-
-      <aside id="roadmap-menu" class="menu is-unselectable">
-
-        {% for project in page.roadmap %}
+      <aside class="menu is-unselectable">
+        {% for category in page.categories %}
           <p class="menu-label">
-            {{ project.title }}
+            {{ category.title }}
           </p>
-
           <ul class="menu-list">
-            {% for detail in project.details %}
-            <li><a data-id="{{ detail.id }}">{{ detail.title }}</a></li>
+            {% for topic in category.topics %}
+            <li><a href="./#{{ topic.title | replace: ' ', '-' }}">{{ topic.title }}</a></li>
             {% endfor %}
           </ul>
-
         {% endfor %}
       </aside>
-
-
-
     </div>
 
-
-    <div id="roadmap-content" class="column">
-
-      {% for project in page.roadmap %}
-        <section class="section is-hidden-desktop">
-          <h1 class="title">{{ project.title }}</h1>
-          <h2 class="subtitle">{{ project.subtitle }}</h2>
-        </section>
-
-        {% for detail in project.details %}
-
-        <div data-id="{{ detail.id }}" class="notification is-2 is-hidden-desktop">
-
-          {% if detail.progress == 100 %}
-            {% assign progress_color = 'is-success' %}
-            {% assign progress_title = 'Completed, was due ' | append: detail.date %}
-          {% elsif detail.progress >= 80 %}
-            {% assign progress_color = 'is-warning' %}
-            {% assign progress_title = detail.progress | append: "% complete. Due " | append: detail.date %}
-          {% else %}
-            {% assign progress_color = 'is-info' %}
-            {% assign progress_title = detail.progress | append: "% complete. Due " | append: detail.date %}
-          {% endif %}
-
-          <h1 class="title is-4">{{ detail.title }}</h1>
-          {% if detail.progress %}<progress class="progress {{ progress_color }}" value="{{ detail.progress }}" max="100">{{ detail.progress }}%</progress>{% endif %}
-          {% if detail.date %}<h2 class="subtitle is-6"><em>{{ progress_title }}</em></h2>{% endif %}
-
-          <hr>
-
-          <div class="content">
-            {{ detail.content | markdownify}}
-          </div>
-
+    <div class="column">
+      {% for category in page.categories %}
+        <div class="notification is-light">
+          <section class="section">
+            <h1 class="title">{{ category.title }}</h1>
+            <h2 class="subtitle">{{ category.subtitle }}</h2>
+          </section>
+          <section class="section">
+            {% for topic in category.topics %}
+              <h2 id="{{ topic.title | replace: ' ', '-' }}" class="title is-5">{{ topic.title }}</h2>
+              <div class="content">
+                {{ topic.content | markdownify | liquify}}
+              </div>
+            {% endfor %}
+          </section>
         </div>
-        {% endfor %}
       {% endfor %}
     </div>
 

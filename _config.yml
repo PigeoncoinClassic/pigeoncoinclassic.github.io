@@ -10,18 +10,42 @@ baseurl: /test # baseurl: null # when deployed to pigeoncoin.org
 
 # social links
 social:
-    discord: https://discord.gg/SZcf63h
-    twitter: https://twitter.com/Pigeoncoin
-    github: https://github.com/Pigeoncoin
-    reddit: https://www.reddit.com/r/Pigeoncoin/
-    telegram: https://t.me/Pigeoncoin
-    medium: https://medium.com/@pigeoncoin
+    Discord: https://discord.gg/SZcf63h
+    Twitter: https://twitter.com/Pigeoncoin
+    Github: https://github.com/Pigeoncoin
+    Reddit: https://www.reddit.com/r/Pigeoncoin/
+    Telegram: https://t.me/Pigeoncoin
+    Medium: https://medium.com/@pigeoncoin
 
 # download links
-download:
+wallets:
   macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/Pigeon-Qt.dmg
-  windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/pigeoncoin-windows_v0.15.99.0.zip
-  linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/pigeoncoin-linux_v0.15.99.0.tar.gz
+  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/pigeoncoin-windows_v0.15.99.0.zip
+  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.0/pigeoncoin-linux_v0.15.99.0.tar.gz
+
+miners:
+  Nvidia: https://github.com/brian112358/nevermore-miner/releases/
+  AMD: https://github.com/brian112358/avermore-miner/releases
+
+exchanges:
+  CryptoBridge: https://crypto-bridge.org/
+
+broadcasts:
+  'May 12': https://www.dropbox.com/s/l788d4bivpmkx3s/may-12-fireside-trimmed.mp3?dl=0
+  'April 29': https://www.dropbox.com/s/d3t0v1o3jpwoc67/april-29-fireside-trimmed.mp3?dl=0
+  'April 15': https://www.dropbox.com/s/rg3crkifhbyaj3j/april-15-fireside-full.mp3?dl=0
+
+
+pool:
+  website: https://pool.pigeoncoin.org
+  address: https://pool.pigeoncoin.org:3663
+
+explorer:
+  website: https://explorer.pigeoncoin.org
+
+donate:
+  pgn: PDiZ89gk5HMqwrcGp6Hs9WdgFALzLbD4HG
+  btc: 1NaVP4cKiWY6MxSDkTCZ2kh5Xm3coA27Qv
 
 # Mastodon instances
 # mastodon:

@@ -1,7 +1,7 @@
 ---
 layout: flightplan
-title: Flightplan
-permalink: /flightplan/
+title: Roadmap
+permalink: /roadmap/
 weight: 9
 
 roadmap:
@@ -10,7 +10,7 @@ roadmap:
     subtitle: Q1 2018
     projects:
 
-      - title: Pigeoncoin
+      - title: Launch
         progress: 100
         tags:
           - blockchain
