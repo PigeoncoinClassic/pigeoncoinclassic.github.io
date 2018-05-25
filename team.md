@@ -69,24 +69,24 @@ team:
         Erik is a professional cryptocurrency trader and acts as a sounding board for the project. His advice on marketing and our position relative to other projects is invaluable. When he's not helping us hone our plan, he's out fishing off Florida's coasts.
 
 
-    - name: Zech Chor
-      title: Development
-      img: /assets/img/team/zech-chor.jpg
-      social:
-        firstPlatform: linkedin
-        firstURL: https://www.linkedin.com/in/zhenyi-chor-35427121/
-      text: >
-        After years of experience in finance, Zech decided to transition into cryptocurrency development. He joined the team so that he could assist the community while preparing himself to provide development support.
-
-
-    - name: Alex Ellis
-      title: Social Marketing
-      img: /assets/img/team/dog-2.jpg
-      social:
-        firstPlatform: discord
-        firstURL: https://discord.gg/SZcf63h
-      text: >
-        Alex is a web developer with illustration and social media marketing experience. When he's not working on our social media marketing plan, he's probably doing front end development or working on his dirt bike.
+    # - name: Zech Chor
+    #   title: Development
+    #   img: /assets/img/team/zech-chor.jpg
+    #   social:
+    #     firstPlatform: linkedin
+    #     firstURL: https://www.linkedin.com/in/zhenyi-chor-35427121/
+    #   text: >
+    #     After years of experience in finance, Zech decided to transition into cryptocurrency development. He joined the team so that he could assist the community while preparing himself to provide development support.
+    #
+    #
+    # - name: Alex Ellis
+    #   title: Social Marketing
+    #   img: /assets/img/team/dog-2.jpg
+    #   social:
+    #     firstPlatform: discord
+    #     firstURL: https://discord.gg/SZcf63h
+    #   text: >
+    #     Alex is a web developer with illustration and social media marketing experience. When he's not working on our social media marketing plan, he's probably doing front end development or working on his dirt bike.
 
 
 
