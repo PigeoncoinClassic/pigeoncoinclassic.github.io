@@ -1,8 +1,7 @@
 // global state object
 // set default state
 var state = {
-  graphState:'chain-hashrate',
-  roadmapState:'KURZ'
+  graphState:'chain-hashrate'
 }
 
 // var statsGraph is defined in the body of chart.html
@@ -34,7 +33,6 @@ onReady(()=>{
 
   // set up helpers
   statsWidgetHelper()
-  roadmapMenuHelper()
   hamburgerHelper()
 
   // set state to localStorage state
@@ -60,9 +58,6 @@ function stateListener(){
 
   // update progress bars
   updateMiningPool()
-
-  // update roadmap
-  updateRoadmap()
 }
 
 function latestDataListener(db){
@@ -228,46 +223,6 @@ function updateGraph(){
   }
 }
 
-function updateRoadmap(){
-  const dataId = state.roadmapState
-
-  hideAllContent()
-  showContentItem(dataId)
-
-  hideAllMenus()
-  showMenuItem(dataId)
-
-  function hideAllMenus(){
-    // select all menu items
-    const els = document.querySelectorAll(`#roadmap-menu a`)
-    Array.from(els).forEach(el => {
-      // add class is-hidden-desktop
-      if(el) el.classList.remove('is-active')
-    })
-  }
-
-  function showMenuItem(dataId){
-    // find dataId, add class id-primary
-    const el = document.querySelector(`#roadmap-menu [data-id="${dataId}"]`)
-    if(el) el.classList.add('is-active')
-  }
-
-  function hideAllContent(){
-    // select all notifications
-    const els = document.querySelectorAll(`#roadmap-content .notification`)
-    Array.from(els).forEach(el => {
-      // add class is-hidden-desktop
-      if(el) el.classList.add('is-hidden-desktop')
-    })
-  }
-
-  function showContentItem(dataId){
-    // find dataId, add class id-primary
-    const el = document.querySelector(`#roadmap-content [data-id="${dataId}"]`)
-    if(el) el.classList.remove('is-hidden-desktop')
-  }
-}
-
 
 
 // helpers
@@ -283,22 +238,6 @@ function statsWidgetHelper(){
       // then set graphState
       setState({
         graphState
-      })
-    })
-  })
-}
-
-function roadmapMenuHelper(){
-  // find all roadmap menu items
-  var els = document.querySelectorAll('#roadmap-menu .menu-list a');
-
-  // tell them all to wait for a click
-  Array.from(els).forEach(el => {
-    el.addEventListener('click', function() {
-      let roadmapState = this.getAttribute('data-id')
-      // then set roadmapState
-      setState({
-        roadmapState
       })
     })
   })
