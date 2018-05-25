@@ -24,7 +24,7 @@ categories:
       content: |
         Socialize with us on [Discord]({{ site.social.Discord }}), follow us on [Twitter]({{ site.social.Twitter }})
 
-    - title: Social
+    - title: Social accounts
       content: |
         Our official social media accounts are
         {% for link in site.social %}
@@ -50,14 +50,16 @@ categories:
           <a href="{{ platform[1] }}"> {{ platform[0] }}</a>
         {% endfor %}
 
-        Download our wallet, create a receiving address, and point your miner to `ccminer -a x16s -o stratum+tcp://{{site.pool.address}} -u {{ site.donate.pgn }}`, replacing our wallet address with your own. This will set you up with our [official mining pool]({{site.pool.website}}).
+        Download our wallet, create a receiving address, and point your miner at `{{site.pool.address}}`
+
+        This will set you up with our [official mining pool]({{site.pool.website}}).
 
     - title: Exchanges
       content: |
         Our official exchange is currently [CryptoBridge]({{ site.exchanges.CryptoBridge }}). You can trade Pigeoncoin (PGN) against Bitcoin, Litecoin, and Ravencoin.
 
 
-  - title: Tech
+  - title: Technology
     subtitle: The nitty gritty
     topics:
 
@@ -67,17 +69,17 @@ categories:
 
     - title: Algorithm
       content: |
-        We debuted X16S (shuffle) as an improved version of X16R (random). We improved hashrate and power consistency with no drawbacks. We are proud to have our algorithm listed under the MIT license. We believe that if the algorithm is good, it should be used by any coin who will benefit from it. In fact, we recommend that any coin forking to a new algorithm consider using X16S (shuffle) as a wrapper for their existing method. If you are a coin founder with questions about this, please reach out via [Discord]({{ site.social.Discord }})
+        We debuted X16S (shuffle) as an improved version of X16R (random). We improved hashrate and power consistency with no drawbacks. We are proud to have our algorithm listed under the MIT license. We believe that any coin forking away from specific hardware will benefit from using X16S as a wrapper for their existing algorithm. If you are a coin founder with questions about this, please reach out via [Discord]({{ site.social.Discord }})
 
     - title: Supply
       content: |
-        We issue 5000 PGN per block, with a blocktime of one minute, and a halving interval of approximately 4 years. Maximum supply is approximately 21B, of which only a small fraction has been issued so far.
+        We issue 5000 PGN per block, with a blocktime of one minute, and a halving interval of approximately 4 years. Maximum supply is approximately 21B, of which only <span data-id="chain-supplyPercentage">2%</span> has been issued so far.
 
 
 
 
 
-  - title: Investors
+  - title: Investment
     subtitle: Our elevator pitch
     topics:
 
@@ -87,22 +89,11 @@ categories:
 
     - title: Innovation
       content: |
-        We have created a new funding mechanism for a social network. We are designing our mining pool for mass adoption so that the fee can be used to fund all of the operating costs of the social network. Mining with our pool is a no-brainer because the value will be directly affected by the amount of revenue that the pool generates.
-
-    - title: Private investment
-      content: |
-          If you are an accredited investor and have a specific request, please reach out to the team via [Discord]({{ site.social.Discord }}).
+        We are using cryptocurrencies to create a new funding mechanism for a social network. We are designing a Pigeoncoin mining pool for mass adoption so that the fee can be used to fund all of the operating costs of the social network. Mining with our pool is a no-brainer because the value will be directly affected by the amount of revenue that the pool generates. Pigeoncoin will be tradable on the Pigeon social network.
 
     - title: Invest
       content: |
-          You can obtain Pigeoncoin by mining with a graphics card or trading on one of our verified exchanges.
+        You can obtain Pigeoncoin by mining with a graphics card or trading on one of our verified exchanges.
 
-
+        If you are an accredited investor and have a specific request, please reach out to the team via [Discord]({{ site.social.Discord }}).    
 ---
-What is the use case?
-Where is the roadmap?
-Where is the whitepaper?
-
-Where is the latest wallet release?
-Which pool should I use?
-Which miners should I use?

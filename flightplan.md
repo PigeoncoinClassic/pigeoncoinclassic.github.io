@@ -53,16 +53,16 @@ roadmap:
           Develop a new brand identity including logo, typography, colors, data display, and user-interface mockups for a future social media application.
 
       - title: Core wallet
-        progress: 90
+        progress: 100
         tags:
           - OpenSSL
-          - checkpoints
-          - investigate difficulty
+          - rebrand
+          - 360 retarget period
         content: |
-          Secure the wallet with the latest version of OpenSSL. Update checkpoints to prevent blockchain branching. Investigate difficulty algorithms.
+          Secure the wallet with the latest version of OpenSSL. Apply our new logo. Change difficulty retargeting period to 360 blocks at a height of 87,570 blocks.
 
       - title: Website
-        progress: 90
+        progress: 100
         tags:
           - layout
           - firebase
@@ -82,14 +82,15 @@ roadmap:
           - graphics
           - social blitz
         content: |
-          Develop our message and package it for delivery with graphics. Deliver to social media with interviews and community ~~spam~~ initiative.
+          Develop our message and package it for delivery with graphics. Deliver to social media with interviews and community initiative.
 
       - title: FPGA Research
         progress: 20
         tags:
           - research
+          - Xilinx
         content: |
-          Determine if FPGA software is an effective foil to the development of ASICs. Execute in the best interests of decentralized mining.
+          Determine if developing FPGA software is an effective foil to the development of ASICs. Execute in the best interests of decentralized mining.
 
       - title: Terahash Pool
         progress: 30
@@ -125,7 +126,7 @@ roadmap:
           - ui
           - beta
         content: |
-          Messaging must between people or groups must be secured. After selecting a reliable encryption method, we will add Messaging to our private beta.
+          Messaging between people or groups must be secured. After selecting a reliable encryption method, we will add Messaging to our private beta.
 
       - title: Data burn
         progress: 10
@@ -134,7 +135,7 @@ roadmap:
           - ux
           - beta
         content: |
-          The internet should forget your conversations as soon as you've forgotten them. Since we are not selling data, burning data is no problem.
+          The internet should forget your conversations as soon as you've forgotten them. Since we are not collecting data, burning data to protect your privacy is a no-brainer.
 
 
   - title: Digital freedom
@@ -148,7 +149,7 @@ roadmap:
           - marketing
           - launch
         content: |
-          After a successful beta we will execute a marketing plan and release Pigeon to the public. A year of hard work will come to an end, and we'll let this bird fly!
+          After a successful beta we will execute a marketing plan and release Pigeon to the public. A year of hard work will come to an end and we'll let this bird fly!
 
       - title: Payments
         progress:

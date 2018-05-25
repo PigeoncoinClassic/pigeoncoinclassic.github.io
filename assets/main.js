@@ -107,6 +107,16 @@ function updateAllWidgets(){
   updateWidget('market-volumeBtc', market.volumeBtc.toFixed(1) + ' BTC')
   updateWidget('market-marketCapBtc', Math.round(market.marketCapBtc) + ' BTC')
   updateWidget('chain-supply', +(chain.supply / 1e6).toPrecision(2) + 'M PGN')
+  updateSpan('chain-supplyPercentage', +(chain.supply / (21*1e9)*100).toPrecision(2) + '%')
+
+
+  function updateSpan(dataId, newData){
+    // find a span by dataId, give it newData!
+    const el = document.querySelector(`[data-id=${dataId}]`)
+    if(el){
+      el.innerHTML = newData
+    }
+  }
 
   function updateWidget(dataId, newData){
     // find a widget by dataId, give it newData!

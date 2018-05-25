@@ -12,7 +12,7 @@
         {% if page.title != 'Home' %}
           {% assign logo_url = '/assets/img/badge.png' | relative_url %}
         {% endif%}
-        
+
         <img src="{{ logo_url }}">
       </a>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -34,8 +34,8 @@
           {% endif %}
         {% endfor %}
 
-        {% if site.social.discord %}
-          <a href="{{ site.social.discord }}" class="navbar-item"><i class="fab fa-discord fa-2x"></i></a>
+        {% if site.social.Discord %}
+          <a href="{{ site.social.Discord }}" class="navbar-item"><i class="fab fa-discord fa-2x"></i></a>
         {% endif%}
 
 
