@@ -6,7 +6,7 @@ description: >
 
 
 # config
-baseurl: /test # baseurl: null # when deployed to pigeoncoin.org
+baseurl: null # baseurl: null # when deployed to pigeoncoin.org
 
 # social links
 social:
