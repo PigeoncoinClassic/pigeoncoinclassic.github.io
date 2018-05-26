@@ -33,6 +33,13 @@ $desktop:	896px + (2 * $gap);
 //$widescreen:	1152px + (2 * $gap);
 //$fullhd:	1344px + (2 * $gap);
 
+@font-face {
+    font-family: Bahnschrift;
+    src: url("./bahnschrift.ttf");
+}
+
+
+
 .footer i{
   margin-left:5px;
   margin-right:5px;
@@ -43,7 +50,6 @@ $desktop:	896px + (2 * $gap);
   margin-bottom:80px;
   max-width:220px;
 }
-
 
 
 .navbar-item img {
@@ -83,7 +89,6 @@ $desktop:	896px + (2 * $gap);
   cursor: default;
 }
 
-
 .columns-are-same-height{
   height: 100%;
   display: flex;
@@ -93,7 +98,6 @@ $desktop:	896px + (2 * $gap);
 .columns-are-same-height .card-footer{
   margin-top: auto;
 }
-
 
 
 // Import the rest
