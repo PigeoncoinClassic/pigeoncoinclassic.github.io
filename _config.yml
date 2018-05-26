@@ -19,9 +19,9 @@ social:
 
 # download links
 wallets:
-  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99-macOS.dmg
-  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99-win64.zip
-  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99-x86_64-linux-gnu.tar.gz
+  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99.2-macOS.dmg
+  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99.2-win64.zip
+  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99.2-x86_64-linux-gnu.tar.gz
 
 miners:
   Nvidia: https://github.com/brian112358/nevermore-miner/releases/
