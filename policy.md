@@ -8,17 +8,17 @@ sections:
     subtitle: Easy to understand
     items:
       - question: What information is being collected?
-        answer: It isn't.
+        answer: If you're connected or not. Nothing personal, as far as we know.
       - question: Who is collecting it?
-        answer: No one.
+        answer: Firebase.
       - question: How is it collected?
-        answer: It isn't.
+        answer: Through the internet?
       - question: Why is it being collected?
-        answer: It's not.
+        answer: So we can be billed for number of concurrent realtime database connections.
       - question: How will it be used?
-        answer: It wont.
+        answer: It lets us know if we need to spend more money on hosting.
       - question: Who will it be shared with?
-        answer: No one.
+        answer: We won't share it with anyone. We might brag to our friends about how many concurrent connections we have, though.
       - question: What will be the effect of this on the individuals concerned?
         answer: No effect.
       - question: Is the intended use likely to cause individuals to object or complain?
