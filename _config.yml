@@ -31,9 +31,9 @@ exchanges:
   CryptoBridge: https://crypto-bridge.org/
 
 broadcasts:
-  'May 12': https://www.dropbox.com/s/l788d4bivpmkx3s/may-12-fireside-trimmed.mp3?dl=0
-  'April 29': https://www.dropbox.com/s/d3t0v1o3jpwoc67/april-29-fireside-trimmed.mp3?dl=0
-  'April 15': https://www.dropbox.com/s/rg3crkifhbyaj3j/april-15-fireside-full.mp3?dl=0
+  'May 26': https://www.youtube.com/watch?v=u2amesrXoW4
+  'May 12': /assets/broadcasts/may-12-fireside.mp3
+  'April 29': /assets/broadcasts/april-29-fireside.mp3
 
 
 pool:
