@@ -4,6 +4,12 @@ tagline: Digital freedom
 description: >
   Messaging and payments for everyone. Security by Blockchain.
 
+notice:
+  show: true
+  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.2
+  text: Update your wallet to v15.99.2 before Monday June 4th 2018
+  color: red
+
 
 # config
 baseurl: null # baseurl: null # when deployed to pigeoncoin.org
