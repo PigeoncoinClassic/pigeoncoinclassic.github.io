@@ -7,7 +7,7 @@ description: >
 notice:
   show: true
   address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.2
-  text: Update your wallet to v15.99.2 before Monday June 4th 2018
+  text: Transactions not completing? Upgrade your wallet to 15.99.2
   color: red
 
 
