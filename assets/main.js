@@ -93,11 +93,15 @@ function historyDataListener(db){
 function updateAllWidgets(){
   const {chain, market } = state.latestData
 
+  // at height 87,570 our retargeting period changes from 2016 to 360
+  const retargetingPeriod = chain.height < 87570 ? 2016 : 360
+
   // update all widgets with proper data format
   updateWidget('chain-hashrate', +(chain.hashrate / 1e9).toPrecision(2) + ' GH')
   updateWidget('chain-difficulty', +chain.difficulty.toPrecision(3) )
   updateWidget('chain-blockTime', (chain.blockTime / 60).toFixed(1) + ' min' )
-  updateWidget('chain-retarget', 2016 - chain.height % 2016 + ' blocks')
+
+  updateWidget('chain-retarget', retargetingPeriod - chain.height % retargetingPeriod + ' blocks')
   updateWidget('market-priceBtc', Math.round(market.priceBtc * 1e8) + ' sats')
   updateWidget('market-volumeBtc', market.volumeBtc.toFixed(1) + ' BTC')
   updateWidget('market-marketCapBtc', Math.round(market.marketCapBtc) + ' BTC')
@@ -203,7 +207,14 @@ function updateGraph(){
     for(dataPoint of Object.values(historyData)){
       // special case for retarget
       if(dataId === 'chain-retarget'){
-        data.push(2016 - dataPoint[parentId]['height'] % 2016)
+        let height = dataPoint[parentId]['height']
+
+        // we changed from 2016 retarget period to 360
+        // at a height of 87,570
+        const retargetingPeriod = height < 87570 ? 2016 : 360
+
+        data.push(retargetingPeriod - height % retargetingPeriod)
+
       }else{
         // push the data
         data.push(dataPoint[parentId][childId] * k)
