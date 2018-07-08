@@ -1,6 +1,5 @@
 ---
 layout: team
-title: Team
 permalink: /team/
 weight: 2
 
@@ -29,14 +28,6 @@ team:
         Gabriel's education in architecture and experience in assisting crypto projects over the last year has provided him with a keen sense for user experience in blockchain. He is responsible for all forms of outreach including exchange and wallet listings.
 
 
-    - name: Todd Embleton
-      title: Fullstack Developer
-      img: /assets/img/team/todd-embleton.jpg
-      social:
-        firstPlatform: twitter
-        firstURL: https://twitter.com/spiderywookie
-      text: >
-        Todd is responsible for designing and building the backend for Terahash Pool. His career in Java development has proven invaluable as we move forward on both blockchain, GPU miner, and web app development.
 
 
     - name: Kevin Kolart
