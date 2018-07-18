@@ -6,9 +6,9 @@ description: >
 
 notice:
   show: true
-  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.2
-  text: Transactions not completing? Upgrade your wallet to 15.99.2
-  color: red
+  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.3
+  text: LWMA algorithm change by July 27th, upgrade your wallet to 15.99.3
+  color: has-text-success
 
 
 # config
@@ -25,9 +25,9 @@ social:
 
 # download links
 wallets:
-  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99.2-macOS.dmg
-  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99.2-win64.zip
-  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.2/pigeon-0.15.99.2-x86_64-linux-gnu.tar.gz
+  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.3/pigeoncoin-v0.15.99.3-macOS.dmg
+  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.3/pigeoncoin-v0.15.99.3-win64.zip
+  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.3/pigeoncoin-v0.15.99.3-linux64.tar.gz
 
 miners:
   Nvidia: https://github.com/brian112358/nevermore-miner/releases/
