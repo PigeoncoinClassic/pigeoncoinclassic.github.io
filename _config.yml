@@ -8,7 +8,7 @@ notice:
   show: true
   address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.3
   text: LWMA algorithm change by July 27th, upgrade your wallet to 15.99.3
-  color: has-text-success
+  color: has-text-success #success, warning, danger, info, primary, secondary
 
 
 # config
