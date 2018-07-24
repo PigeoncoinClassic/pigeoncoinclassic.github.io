@@ -10,7 +10,7 @@ team:
 
     people:
     - name: Luke Pighetti
-      title: Founder
+      title: Founder / Lead Developer
       img: /assets/img/team/luke-pighetti.jpg
       social:
         firstPlatform: linkedin
@@ -41,14 +41,14 @@ team:
         Kevin is responsible for creating design assets that effortlessly explain who we are and what we do. With Kevin's guidance, we can reach more people with less effort. He likes music, building things to be proud of, and making incredible vector graphics.
 
 
-    - name: Matt Foreman
-      title: Embedded Systems
-      img: /assets/img/team/matt-foreman.jpg
-      social:
-        firstPlatform: youtube
-        firstURL: https://youtube.com/channel/UCXbkOrN4wXUiO4HEbnuPdow
-      text: >
-        Matt's experience with embedded systems and electrical engineering makes him perfectly suited to assist us with proof-of-work hardware research. Matt loves assembly programming and old Navy manuals that discuss the design of analog AC circuits.
+    # - name: Matt Foreman
+    #   title: Embedded Systems
+    #   img: /assets/img/team/matt-foreman.jpg
+    #   social:
+    #     firstPlatform: youtube
+    #     firstURL: https://youtube.com/channel/UCXbkOrN4wXUiO4HEbnuPdow
+    #   text: >
+    #     Matt's experience with embedded systems and electrical engineering makes him perfectly suited to assist us with proof-of-work hardware research. Matt loves assembly programming and old Navy manuals that discuss the design of analog AC circuits.
 
 
     - name: Erik Mourin
@@ -69,8 +69,8 @@ team:
     #     firstURL: https://www.linkedin.com/in/zhenyi-chor-35427121/
     #   text: >
     #     After years of experience in finance, Zech decided to transition into cryptocurrency development. He joined the team so that he could assist the community while preparing himself to provide development support.
-    #
-    #
+    
+    
     # - name: Alex Ellis
     #   title: Social Marketing
     #   img: /assets/img/team/dog-2.jpg
