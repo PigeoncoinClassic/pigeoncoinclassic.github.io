@@ -10,7 +10,7 @@ sections:
       - question: What information is being collected?
         answer: If you're connected or not. Nothing personal, as far as we know.
       - question: Who is collecting it?
-        answer: Firebase.
+        answer: Firebase!
       - question: How is it collected?
         answer: Through the internet?
       - question: Why is it being collected?
