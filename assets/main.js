@@ -1,8 +1,8 @@
 // global state object
 // set default state
 var state = {
-  graphState:'chain-hashrate'
-}
+  graphState: "chain-hashrate"
+};
 
 // var statsGraph is defined in the body of chart.html
 
@@ -16,281 +16,283 @@ const config = {
   messagingSenderId: "16957585674"
 };
 
-
 //////////////////////////////
 
-onReady(()=>{
+onReady(() => {
   // on load
-  console.log(`DOM is ready!`)
+  console.log(`DOM is ready!`);
 
   // initialize firebase
   firebase.initializeApp(config);
-  const db = firebase.database()
+  const db = firebase.database();
 
   // set up listeners
-  latestDataListener(db)
-  historyDataListener(db)
+  latestDataListener(db);
+  historyDataListener(db);
 
   // set up helpers
-  statsWidgetHelper()
-  hamburgerHelper()
+  statsWidgetHelper();
+  hamburgerHelper();
 
   // set state to localStorage state
-  if(localStorage.state){
-    setState(JSON.parse(localStorage.state))
+  if (localStorage.state) {
+    setState(JSON.parse(localStorage.state));
   }
-})
-
-
+});
 
 // listeners
 
-function stateListener(){
+function stateListener() {
   // new state!
-  console.log(state)
+  console.log(state);
 
   // update widgets
-  updateAllWidgets()
-  activateWidget()
+  updateAllWidgets();
+  activateWidget();
 
   // update graph
-  if(typeof statsGraph !== 'undefined') updateGraph()
+  if (typeof statsGraph !== "undefined") updateGraph();
 
   // update progress bars
-  updateMiningPool()
+  updateMiningPool();
 }
 
-function latestDataListener(db){
+function latestDataListener(db) {
   // listen for latestData
-  const ref = db.ref('latestData')
+  const ref = db.ref("latestData");
 
-  ref.on('value', snap => {
-    const latestData = snap.val()
+  ref.on("value", snap => {
+    const latestData = snap.val();
     // setState
     setState({
       latestData
-    })
-  })
+    });
+  });
 }
 
-function historyDataListener(db){
+function historyDataListener(db) {
   // listen for historyData
-  const ref = db.ref('historyData')
+  const ref = db.ref("historyData");
 
-  ref.on('value', snap => {
-    const historyData = snap.val()
-    // setState
-    setState({
-      historyData
-    })
-  })
+  ref
+    .orderByKey()
+    .limitToLast(60)
+    .on("value", snap => {
+      const historyData = snap.val();
+      // setState
+      setState({
+        historyData
+      });
+    });
 }
-
-
 
 // updaters
 
-function updateAllWidgets(){
-  const {chain, market } = state.latestData
+function updateAllWidgets() {
+  const { chain, market } = state.latestData;
 
   // at height 87,570 our retargeting period changes from 2016 to 360
-  const retargetingPeriod = chain.height < 87570 ? 2016 : 360
+  const retargetingPeriod =
+    chain.height < 87570 ? 2016 : chain.height < 111222 ? 360 : 1;
 
   // update all widgets with proper data format
-  updateWidget('chain-hashrate', +(chain.hashrate / 1e9).toPrecision(2) + ' GH')
-  updateWidget('chain-difficulty', +chain.difficulty.toPrecision(3) )
-  updateWidget('chain-blockTime', (chain.blockTime / 60).toFixed(1) + ' min' )
+  updateWidget(
+    "chain-hashrate",
+    +(chain.hashrate / 1e9).toPrecision(2) + " GH"
+  );
+  updateWidget("chain-difficulty", +chain.difficulty.toPrecision(3));
+  updateWidget("chain-blockTime", (chain.blockTime / 60).toFixed(1) + " min");
 
-  updateWidget('chain-retarget', retargetingPeriod - chain.height % retargetingPeriod + ' blocks')
-  updateWidget('market-priceBtc', Math.round(market.priceBtc * 1e8) + ' sats')
-  updateWidget('market-volumeBtc', market.volumeBtc.toFixed(1) + ' BTC')
-  updateWidget('market-marketCapBtc', Math.round(market.marketCapBtc) + ' BTC')
-  updateWidget('chain-supply', +(chain.supply / 1e6).toPrecision(2) + 'M PGN')
-  updateSpan('chain-supplyPercentage', +(chain.supply / (21*1e9)*100).toPrecision(2) + '%')
+  updateWidget("chain-retarget", "LWMA");
+  updateWidget("market-priceBtc", Math.round(market.priceBtc * 1e8) + " sats");
+  updateWidget("market-volumeBtc", market.volumeBtc.toFixed(1) + " BTC");
+  updateWidget("market-marketCapBtc", Math.round(market.marketCapBtc) + " BTC");
+  updateWidget("chain-supply", +(chain.supply / 1e6).toPrecision(2) + "M PGN");
+  updateSpan(
+    "chain-supplyPercentage",
+    +((chain.supply / (21 * 1e9)) * 100).toPrecision(2) + "%"
+  );
 
-
-  function updateSpan(dataId, newData){
+  function updateSpan(dataId, newData) {
     // find a span by dataId, give it newData!
-    const el = document.querySelector(`[data-id=${dataId}]`)
-    if(el){
-      el.innerHTML = newData
+    const el = document.querySelector(`[data-id=${dataId}]`);
+    if (el) {
+      el.innerHTML = newData;
     }
   }
 
-  function updateWidget(dataId, newData){
+  function updateWidget(dataId, newData) {
     // find a widget by dataId, give it newData!
-    const el = document.querySelector(`[data-id=${dataId}] .title`)
-    if(el){
-      el.innerHTML = newData
+    const el = document.querySelector(`[data-id=${dataId}] .title`);
+    if (el) {
+      el.innerHTML = newData;
     }
   }
 }
 
-function activateWidget(){
-  const dataId = state.graphState
+function activateWidget() {
+  const dataId = state.graphState;
 
-  hideAllWidgets()
-  highlightWidget(dataId)
+  hideAllWidgets();
+  highlightWidget(dataId);
 
-  function hideAllWidgets(){
+  function hideAllWidgets() {
     // select all widgets
-    const els = document.querySelectorAll(`#graph-widgets .notification`)
+    const els = document.querySelectorAll(`#graph-widgets .notification`);
     Array.from(els).forEach(el => {
       // remove class is-primary
-      if(el) el.classList.remove('is-primary')
-    })
+      if (el) el.classList.remove("is-primary");
+    });
   }
 
-  function highlightWidget(dataId){
+  function highlightWidget(dataId) {
     // find dataId, add class id-primary
-    const el = document.querySelector(`#graph-widgets [data-id="${dataId}"]`)
-    if(el) el.classList.add('is-primary')
+    const el = document.querySelector(`#graph-widgets [data-id="${dataId}"]`);
+    if (el) el.classList.add("is-primary");
   }
 }
 
-function updateMiningPool(){
-  const { pool } = state.latestData
+function updateMiningPool() {
+  const { pool } = state.latestData;
 
   // update pool-miners
-  updateProgressBar('pool-miners', pool.miners, 1000)
-  updateTag('pool-miners-tag', Math.round(pool.miners))
+  updateProgressBar("pool-miners", pool.miners, 1000);
+  updateTag("pool-miners-tag", Math.round(pool.miners));
 
   // update pool-payout
-  const lastPayout = Date.now()/1000/60-60
-  updateProgressBar('pool-payout', lastPayout % 180, 180)
-  updateTag('pool-payout-tag', `in ${Math.round(180 - lastPayout % 180)}m`)
+  const lastPayout = Date.now() / 1000 / 60 - 60;
+  updateProgressBar("pool-payout", lastPayout % 180, 180);
+  updateTag("pool-payout-tag", `in ${Math.round(180 - (lastPayout % 180))}m`);
 
   // update pool-lastBlock
-  const minutesAgo = (Date.now()/1000 - pool.lastBlockTime)/60
-  updateProgressBar('pool-lastBlock', minutesAgo, pool.timeToFind/60 * 2)
-  updateTag('pool-lastBlock-tag', `${Math.round(minutesAgo)}m ago`)
+  const minutesAgo = (Date.now() / 1000 - pool.lastBlockTime) / 60;
+  updateProgressBar("pool-lastBlock", minutesAgo, (pool.timeToFind / 60) * 2);
+  updateTag("pool-lastBlock-tag", `${Math.round(minutesAgo)}m ago`);
 
-
-  function updateTag(dataId, value){
-    const el = document.querySelector(`[data-id="${dataId}"]`)
-    if(el) el.innerHTML = value
+  function updateTag(dataId, value) {
+    const el = document.querySelector(`[data-id="${dataId}"]`);
+    if (el) el.innerHTML = value;
   }
 
-  function updateProgressBar(dataId, value, max){
-    const el = document.querySelector(`[data-id="${dataId}"]`)
-    if(el){
-      el.value = value
-      el.max = max
+  function updateProgressBar(dataId, value, max) {
+    const el = document.querySelector(`[data-id="${dataId}"]`);
+    if (el) {
+      el.value = value;
+      el.max = max;
     }
   }
 }
 
-function updateGraph(){
-  const chart = statsGraph // defined in the body of chart.html
-  const { historyData , graphState} = state
-  const dataId = graphState
-  let k = 1 // we use this to scale our data
+function updateGraph() {
+  const chart = statsGraph; // defined in the body of chart.html
+  const { historyData, graphState } = state;
+  const dataId = graphState;
+  let k = 1; // we use this to scale our data
 
   // scale our data so it displays right
-  if(dataId == 'chain-hashrate') k = 1e-9
-  if(dataId == 'chain-blockTime') k = 1/60
-  if(dataId == 'chain-supply') k = 1e-6
-  if(dataId == 'market-priceBtc') k = 1e8
+  if (dataId == "chain-hashrate") k = 1e-9;
+  if (dataId == "chain-blockTime") k = 1 / 60;
+  if (dataId == "chain-supply") k = 1e-6;
+  if (dataId == "market-priceBtc") k = 1e8;
 
-  const {data, labels} = parseHistoryData(historyData, dataId, k)
+  const { data, labels } = parseHistoryData(historyData, dataId, k);
 
-  pushUpdateToGraph(chart, data, labels)
+  pushUpdateToGraph(chart, data, labels);
 
-
-  function parseHistoryData(historyData, dataId, k){
+  function parseHistoryData(historyData, dataId, k) {
     // get parentId and childId from dataId
-    const [ parentId, childId ] = dataId.split('-')
+    const [parentId, childId] = dataId.split("-");
 
-    const data = []
-    const labels = []
+    const data = [];
+    const labels = [];
 
-    for(dataPoint of Object.values(historyData)){
+    for (dataPoint of Object.values(historyData)) {
       // special case for retarget
-      if(dataId === 'chain-retarget'){
-        let height = dataPoint[parentId]['height']
+      if (dataId === "chain-retarget") {
+        let height = dataPoint[parentId]["height"];
 
         // we changed from 2016 retarget period to 360
         // at a height of 87,570
-        const retargetingPeriod = height < 87570 ? 2016 : 360
+        const retargetingPeriod =
+          height < 87570 ? 2016 : height < 111222 ? 360 : 1;
 
-        data.push(retargetingPeriod - height % retargetingPeriod)
-
-      }else{
+        data.push(retargetingPeriod - (height % retargetingPeriod) || 1);
+      } else {
         // push the data
-        data.push(dataPoint[parentId][childId] * k)
+        data.push(dataPoint[parentId][childId] * k);
       }
       // push the label
-      labels.push(dataPoint[parentId]['timestamp'] * 1000)
+      labels.push(dataPoint[parentId]["timestamp"] * 1000);
     }
 
-    console.log({ data, labels })
-    return { data, labels }
+    console.log({ data, labels });
+    return { data, labels };
   }
 
-  function pushUpdateToGraph(chart, data, labels){
-    chart.data.labels = labels
-    chart.data.datasets[0].data = data
+  function pushUpdateToGraph(chart, data, labels) {
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = data;
     chart.update();
   }
 }
 
-
-
 // helpers
 
-function statsWidgetHelper(){
+function statsWidgetHelper() {
   // find all graph widgets
-  var els = document.querySelectorAll('#graph-widgets .notification');
+  var els = document.querySelectorAll("#graph-widgets .notification");
 
   // tell them all to wait for a click
   Array.from(els).forEach(el => {
-    el.addEventListener('click', function() {
-      let graphState = this.getAttribute('data-id')
+    el.addEventListener("click", function() {
+      let graphState = this.getAttribute("data-id");
       // then set graphState
       setState({
         graphState
-      })
-    })
-  })
+      });
+    });
+  });
 }
 
-function hamburgerHelper(){
+function hamburgerHelper() {
   // find the hamburger and tell them to toggleNav
-  document.querySelector('.navbar-burger').addEventListener("click", toggleNav)
+  document.querySelector(".navbar-burger").addEventListener("click", toggleNav);
 
   function toggleNav() {
     // find the menu
-    const nav = document.querySelector('.navbar-menu')
+    const nav = document.querySelector(".navbar-menu");
 
     // toggle is-active
-    if(nav.className == "navbar-menu") {
-      nav.className = "navbar-menu is-active"
+    if (nav.className == "navbar-menu") {
+      nav.className = "navbar-menu is-active";
     } else {
-      nav.className = "navbar-menu"
+      nav.className = "navbar-menu";
     }
   }
 }
 
-
-
 // core utilities
 
-function setState(object){
+function setState(object) {
   // set global state
-  state = Object.assign(state, object)
+  state = Object.assign(state, object);
 
   // persist global state
-  localStorage.state = (JSON.stringify(state))
+  localStorage.state = JSON.stringify(state);
 
   // trigger stateListener
-  stateListener()
+  stateListener();
 }
 
 function onReady(callback) {
   // when the document is ready, callback
-  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+  if (
+    document.attachEvent
+      ? document.readyState === "complete"
+      : document.readyState !== "loading"
+  ) {
     callback;
   } else {
-    document.addEventListener('DOMContentLoaded', callback);
+    document.addEventListener("DOMContentLoaded", callback);
   }
 }

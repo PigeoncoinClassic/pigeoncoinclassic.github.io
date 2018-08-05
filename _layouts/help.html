@@ -29,7 +29,7 @@ layout: default
             {% for topic in category.topics %}
               <h2 id="{{ topic.title | replace: ' ', '-' }}" class="title is-5">{{ topic.title }}</h2>
               <div class="content">
-                {{ topic.content | markdownify | liquify}}
+                {{ topic.content | markdownify }}
               </div>
             {% endfor %}
           </section>

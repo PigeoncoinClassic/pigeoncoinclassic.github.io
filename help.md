@@ -22,41 +22,19 @@ categories:
 
     - title: Get involved
       content: |
-        Socialize with us on [Discord]({{ site.social.Discord }}), follow us on [Twitter]({{ site.social.Twitter }})
-
-    - title: Social accounts
-      content: |
-        Our official social media accounts are
-        {% for link in site.social %}
-          {% if forloop.last == true %}
-          and
-          {% endif %}
-          <a href="{{link[1]}}">{{ link[0] }}</a>
-        {% endfor %}
+        We hang out on Discord, make announcements on Twitter, and can occasionally be found on Telegram. All official social media accounts can be found in our footer.
 
     - title: Wallet
       content: |
-        We release wallets for
-        {% for platform in site.wallets %}
-          {% if forloop.last == true %}and{% endif %}
-          <a href="{{ platform[1] }}">{{ platform[0] }}</a>
-        {% endfor %}
+        We release wallets for macOS, Windows, and Linux. These can be found on our front page.
 
     - title: Mining
       content: |
-        Our community has created GPU mining software for
-        {% for platform in site.miners %}
-          {% if forloop.last == true %}and{% endif %}
-          <a href="{{ platform[1] }}"> {{ platform[0] }}</a>
-        {% endfor %}
-
-        Download our wallet, create a receiving address, and point your miner at `{{site.pool.address}}`
-
-        This will set you up with our [official mining pool]({{site.pool.website}}).
+        Our community has created GPU mining software for Nvidia and AMD GPUs, with software available for Linux and Windows. See our front page for links.
 
     - title: Exchanges
       content: |
-        Our official exchange is currently [CryptoBridge]({{ site.exchanges.CryptoBridge }}). You can trade Pigeoncoin (PGN) against Bitcoin, Litecoin, and Ravencoin.
+        Our official exchanges are [CryptoBridge](https://crypto-bridge.org/) and [QBTC](https://www.qbtc.com/). You can trade Pigeoncoin (PGN) against Bitcoin, Litecoin, Ravencoin, and CNYT.
 
 
   - title: Technology
@@ -69,7 +47,11 @@ categories:
 
     - title: Algorithm
       content: |
-        We debuted X16S (shuffle) as an improved version of X16R (random). We improved hashrate and power consistency with no drawbacks. We are proud to have our algorithm listed under the MIT license. We believe that any coin forking away from specific hardware will benefit from using X16S as a wrapper for their existing algorithm. If you are a coin founder with questions about this, please reach out via [Discord]({{ site.social.Discord }})
+        We debuted X16S (shuffle) as an improved version of X16R (random). We improved hashrate and power consistency with no drawbacks. We are proud to have our algorithm listed under the MIT license. We believe that any coin forking away from specific hardware will benefit from using X16S as a wrapper for their existing algorithm. If you are a coin founder with questions about this, please reach out via Discord.
+
+    - title: Difficulty
+      content: |
+        We debuted the LWMA (linear-weighted moving-average) difficulty algorithm at block 111,222. This algorithm uses the last 45 blocks to calculate the new target, setting a new difficulty each block. This has provided difficulty stability that is simply unmatched by any other method. We recommend the LWMA algorithm to coins of any size.
 
     - title: Supply
       content: |
@@ -95,5 +77,5 @@ categories:
       content: |
         You can obtain Pigeoncoin by mining with a graphics card or trading on one of our verified exchanges.
 
-        If you are an accredited investor and have a specific request, please reach out to the team via [Discord]({{ site.social.Discord }}).    
+        If you are an accredited investor and have a specific request, please reach out to the team via Discord.
 ---
