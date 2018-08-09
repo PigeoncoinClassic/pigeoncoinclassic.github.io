@@ -76,7 +76,7 @@ function historyDataListener(db) {
 
   ref
     .orderByKey()
-    .limitToLast(60)
+    .limitToLast(90)
     .on("value", snap => {
       const historyData = snap.val();
       // setState
