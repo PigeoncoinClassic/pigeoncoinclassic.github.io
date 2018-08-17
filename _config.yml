@@ -38,9 +38,9 @@ exchanges:
   QBTC: https://www.qbtc.com
 
 broadcasts:
-  'May 26': https://www.youtube.com/watch?v=u2amesrXoW4
   'May 12': /assets/broadcasts/may-12-fireside.mp3
   'April 29': /assets/broadcasts/april-29-fireside.mp3
+  'August 17': august-17-announcement.ogg
 
 
 pool:

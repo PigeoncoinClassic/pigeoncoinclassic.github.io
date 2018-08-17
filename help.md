@@ -56,26 +56,4 @@ categories:
     - title: Supply
       content: |
         We issue 5000 PGN per block, with a blocktime of one minute, and a halving interval of approximately 4 years. Maximum supply is approximately 21B, of which only <span data-id="chain-supplyPercentage">2%</span> has been issued so far.
-
-
-
-
-
-  - title: Investment
-    subtitle: Our elevator pitch
-    topics:
-
-    - title: Elevator pitch
-      content: |
-        We are a software startup that is using our mineable cryptocurrency and our mining pool (wip) to fund a social network called Pigeon. This social network will never need to sell bulk user data, will have an integrated cryptocurrency wallet, and will be designed for the general public.
-
-    - title: Innovation
-      content: |
-        We are using cryptocurrencies to create a new funding mechanism for a social network. We are designing a Pigeoncoin mining pool for mass adoption so that the fee can be used to fund all of the operating costs of the social network. Mining with our pool is a no-brainer because the value will be directly affected by the amount of revenue that the pool generates. Pigeoncoin will be tradable on the Pigeon social network.
-
-    - title: Invest
-      content: |
-        You can obtain Pigeoncoin by mining with a graphics card or trading on one of our verified exchanges.
-
-        If you are an accredited investor and have a specific request, please reach out to the team via Discord.
 ---
