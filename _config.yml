@@ -40,7 +40,7 @@ exchanges:
 broadcasts:
   'May 12': /assets/broadcasts/may-12-fireside.mp3
   'April 29': /assets/broadcasts/april-29-fireside.mp3
-  'August 17': august-17-announcement.ogg
+  'August 17': /assets/broadcasts/august-17-announcement.ogg
 
 
 pool:
