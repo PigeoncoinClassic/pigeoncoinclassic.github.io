@@ -6,8 +6,8 @@ description: >
 
 notice:
   show: false
-  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.3
-  text: Chain stalled? Yes, it's just you. Upgrade to 15.99.3.
+  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.6
+  text: Critical wallet update. Upgrade to 15.99.6.
   color: has-text-danger #success, warning, danger, info, primary, secondary
 
 
