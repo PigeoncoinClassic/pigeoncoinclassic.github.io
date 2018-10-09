@@ -35,7 +35,8 @@ miners:
 
 exchanges:
   CryptoBridge: https://crypto-bridge.org/
-  QBTC: https://www.qbtc.com
+  QBTC: https://www.qbtc.com/
+  'Safe Trade': https://www.safe.trade/
 
 broadcasts:
   'May 12': /assets/broadcasts/may-12-fireside.mp3
