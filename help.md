@@ -5,9 +5,6 @@ permalink: /faq/
 weight: 8
 
 categories:
-
-
-
   - title: Basics
     subtitle: The kitchen sink
     topics:
@@ -34,7 +31,7 @@ categories:
 
     - title: Exchanges
       content: |
-        Our official exchanges are [CryptoBridge](https://crypto-bridge.org/) and [QBTC](https://www.qbtc.com/). You can trade Pigeoncoin (PGN) against Bitcoin, Litecoin, Ravencoin, and CNYT.
+        Our official exchange is [CryptoBridge](https://crypto-bridge.org/), with other exchanges listed on the front page. Disclaimer: We cannot be held responsible for the conduct of any exchange. Trading on any platform is at your own risk.
 
 
   - title: Technology
@@ -56,4 +53,16 @@ categories:
     - title: Supply
       content: |
         We issue 5000 PGN per block, with a blocktime of one minute, and a halving interval of approximately 4 years. Maximum supply is approximately 21B, of which only <span data-id="chain-supplyPercentage">2%</span> has been issued so far.
+
+  - title: Exploits
+    subtitle: Patched issues
+    topics:
+
+      - title: CVE-17144
+        content: |
+          On Sep 26th Pigeoncoin was exploited by a known BTC bug (CVE-2018-17144) that was made public the prior week, which allows one to be able to send duplicate unspent inputs when they mine their own block with such transactions. As a result, they were able to mine 3 blocks with these transactions in their block, which turned 5k PGN into 244M PGN. By the time the team and community was notified, it was too late to invalidate these transactions. Within 24 hrs the Dev team had patched and fixed the exploit, and as a community we decided not to rollback the blockchain to invalidate these transactions because of centralisation concerns from the community. The Pigeoncoin team and community take this as a learning opportunity to making changes in team/role structure to ensure we can minimize the chance of such an event from happening in the future. [commit](https://github.com/Pigeoncoin/pigeoncoin/commit/cc4885cc8e176e4e68a6ef966638b6728191c853)
+        
+      - title: Timestamp
+        content: |
+          ZAWY, the author of the LWMA difficulty adjustment algorithm, informed us of a security issue related to coins who were originally designed for a 10 minute blocktime who then switched to a lower block time and incorporated every-block retargeting. This security issue would allow a miner to submit incorrect block timestamps allowing them to mine for a period of time without the difficulty algorithm responding. This vulnerability has not been exploited on our chain to the best of our knowledge. [commit](https://github.com/Pigeoncoin/pigeoncoin/commit/90e2dcbe60aa413b4efba2ad4518bcd003a3dca0)
 ---

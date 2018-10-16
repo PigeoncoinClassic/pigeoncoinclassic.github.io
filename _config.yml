@@ -5,7 +5,7 @@ description: >
   Messaging and payments for everyone. Security by Blockchain.
 
 notice:
-  show: true
+  show: false
   address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.6
   text: Critical wallet update. Upgrade to 15.99.6.
   color: has-text-danger #success, warning, danger, info, primary, secondary

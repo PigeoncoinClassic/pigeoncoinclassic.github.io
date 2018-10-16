@@ -107,7 +107,7 @@ function updateAllWidgets() {
   updateWidget("market-priceBtc", Math.round(market.priceBtc * 1e8) + " sats");
   updateWidget("market-volumeBtc", market.volumeBtc.toFixed(1) + " BTC");
   updateWidget("market-marketCapBtc", Math.round(market.marketCapBtc) + " BTC");
-  updateWidget("chain-supply", +(chain.supply / 1e6).toPrecision(2) + "M PGN");
+  updateWidget("chain-supply", +(chain.supply / 1e9).toPrecision(2) + "B PGN");
   updateSpan(
     "chain-supplyPercentage",
     +((chain.supply / (21 * 1e9)) * 100).toPrecision(2) + "%"
