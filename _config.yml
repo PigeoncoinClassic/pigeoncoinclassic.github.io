@@ -39,9 +39,9 @@ exchanges:
   'Safe Trade': https://www.safe.trade/
 
 broadcasts:
-  'April 29': /assets/broadcasts/april-29-fireside.mp3
   'August 17': /assets/broadcasts/august-17-announcement.ogg
   'October 23': /assets/broadcasts/october-23-2018.ogg
+  'November 6': /assets/broadcasts/november-6-2018.ogg
 
 
 pool:
