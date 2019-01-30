@@ -39,10 +39,9 @@ exchanges:
   'Safe Trade': https://www.safe.trade/
 
 broadcasts:
-  'October 23': /assets/broadcasts/october-23-2018.ogg
-  'November 6': /assets/broadcasts/november-6-2018.ogg
-  'November 20': /assets/broadcasts/november-20-2018.ogg
-
+  'January 8': https://www.youtube.com/watch?v=YpfHjgjNrYY
+  'January 15': https://www.youtube.com/watch?v=dNvzaoLd2gs
+  'January 29': https://www.youtube.com/watch?v=2SBMhSIhHUc
 
 pool:
   website: https://pool.pigeoncoin.org
