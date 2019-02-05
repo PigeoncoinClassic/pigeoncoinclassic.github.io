@@ -5,9 +5,9 @@ description: >
   Messaging and payments for everyone. Security by Blockchain.
 
 notice:
-  show: false
-  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.15.99.6
-  text: Critical wallet update. Upgrade to 15.99.6.
+  show: true
+  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.16.00.1
+  text: Critical wallet update. Upgrade to 16.00.1.
   color: has-text-danger #success, warning, danger, info, primary, secondary
 
 
@@ -25,9 +25,9 @@ social:
 
 # download links
 wallets:
-  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.6/pigeon_0.15.99.6_macHighSierra.tar.gz
-  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.6/pigeon_0.15.99.6_win64.zip
-  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.6/pigeon_0.15.99.6_ubuntu16.tar.gz
+  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.6/pigeon_0.16.00.1_macHighSierra.tar.gz
+  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.6/pigeon_0.16.00.1_win64.zip
+  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.15.99.6/pigeon_0.15.00.1_ubuntu16.tar.gz
 
 miners:
   Nvidia: https://github.com/brian112358/nevermore-miner/releases/
