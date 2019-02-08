@@ -6,7 +6,7 @@ description: >
 
 notice:
   show: true
-  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.16.00.1
+  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v16.00.1b
   text: Critical wallet update. Upgrade to 16.00.1.
   color: has-text-danger #success, warning, danger, info, primary, secondary
 
