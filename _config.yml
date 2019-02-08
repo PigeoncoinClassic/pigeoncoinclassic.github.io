@@ -25,7 +25,7 @@ social:
 
 # download links
 wallets:
-  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v16.00.1b
+  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.1b/pigeon_0.16.0_macOS.dmg
   Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.1b/pigeon_0.16.0_win64.zip
   Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.1b/pigeon_0.16.0_ubuntu18.tar.gz
 
