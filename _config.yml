@@ -6,8 +6,8 @@ description: >
 
 notice:
   show: true
-  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v16.00.1b
-  text: Critical wallet update. Upgrade to 16.00.1.
+  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v16.00.2
+  text: Critical wallet update. Upgrade to 16.00.2.
   color: has-text-danger #success, warning, danger, info, primary, secondary
 
 
@@ -25,9 +25,9 @@ social:
 
 # download links
 wallets:
-  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.1b/pigeon_0.16.0_macOS.dmg
-  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.1b/pigeon_0.16.0_win64.zip
-  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.1b/pigeon_0.16.0_ubuntu18.tar.gz
+  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.2/pigeon_0.16.0.2_macOS.dmg
+  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.2/pigeon_0.16.0.2_win64.zip
+  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v16.00.2/pigeon_0.16.0.2_ubuntu16.tar.gz
 
 miners:
   Nvidia: https://github.com/brian112358/nevermore-miner/releases/
@@ -35,7 +35,6 @@ miners:
 
 exchanges:
   CryptoBridge: https://crypto-bridge.org/
-  QBTC: https://www.qbtc.com/
   'Safe Trade': https://www.safe.trade/
   Swiftex: https://swiftex.co/
   AltMarkets: https://altmarkets.io/
