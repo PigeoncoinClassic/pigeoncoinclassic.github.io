@@ -7,7 +7,7 @@ description: >
 notice:
   show: true
   address: https://github.com/Pigeoncoin/brand/blob/master/Pigeoncoin_Litepaper_v1.pdf
-  text: Pigeoncoin Litepaper: Datanodes / Servicenodes and the Pigeon Social DAPP
+  text: Pigeoncoin Litepaper - Datanodes / Servicenodes and the Pigeon Social DAPP
   color: has-text-danger #success, warning, danger, info, primary, secondary
 
 
