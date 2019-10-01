@@ -8,7 +8,7 @@ notice:
   show: true
   address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.17.0.3
   text: Critical Wallet Update - Please update before the 15th of October 2019
-  color: has-text-success #danger, warning, success, info, primary, secondary
+  color: has-text-danger #danger, warning, success, info, primary, secondary
 
 
 # config
