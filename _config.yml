@@ -6,9 +6,9 @@ description: >
 
 notice:
   show: true
-  address: https://github.com/Pigeoncoin/brand/blob/master/Pigeoncoin_Litepaper_v1.pdf
-  text: Pigeoncoin Litepaper - Datanodes / Servicenodes and the Pigeon Social DAPP
-  color: has-text-success #success, warning, danger, info, primary, secondary
+  address: https://github.com/Pigeoncoin/pigeoncoin/releases/tag/v0.17.0.3
+  text: Critical Wallet Update - Please update before the 15th of October 2019
+  color: has-text-success #danger, warning, success, info, primary, secondary
 
 
 # config
