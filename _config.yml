@@ -50,7 +50,7 @@ pool:
   address: https://pool.pigeoncoin.org:3663
 
 explorer:
-  website: http://explorer.pigeoncoin.org
+  website: https://chainmapper.com/PGN
 
 donate:
   pgn: PDiZ89gk5HMqwrcGp6Hs9WdgFALzLbD4HG
