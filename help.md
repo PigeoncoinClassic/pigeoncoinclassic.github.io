@@ -44,7 +44,7 @@ categories:
 
     - title: Algorithm
       content: |
-        We debuted X16S (shuffle) as an improved version of X16R (random). We improved hashrate and power consistency with no drawbacks. We are proud to have our algorithm listed under the MIT license. We believe that any coin forking away from specific hardware will benefit from using X16S as a wrapper for their existing algorithm. If you are a coin founder with questions about this, please reach out via Discord.
+        We debuted X16S (shuffle) as an improved version of X16R (random). We improved hashrate and power consistency with no drawbacks. We are proud to have our algorithm listed under the MIT license. We believe that any coin forking away from specific hardware will benefit from using X16S as a wrapper for their existing algorithm. We are now using a related algorithm X21S. If you are a coin founder with questions about this, please reach out via Discord.
 
     - title: Difficulty
       content: |
@@ -52,7 +52,7 @@ categories:
 
     - title: Supply
       content: |
-        We issue 5000 PGN per block, with a blocktime of one minute, and a halving interval of approximately 4 years. Maximum supply is approximately 21B, of which only <span data-id="chain-supplyPercentage">2%</span> has been issued so far.
+        We issue 5000 PGN per block (4750 to miners, 250 or 5% to our development fund), with a blocktime of one minute, and a halving interval of approximately 4 years. Maximum supply is approximately 21B, of which only <span data-id="chain-supplyPercentage">2%</span> has been issued so far.
 
   - title: Exploits
     subtitle: Patched issues
