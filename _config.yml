@@ -31,8 +31,8 @@ wallets:
   # Android: https://play.google.com/store/apps/details?id=org.myntlabs.pgn
 
 miners:
-  Nvidia: https://github.com/brian112358/nevermore-miner/releases/
-  AMD: https://github.com/brian112358/avermore-miner/releases
+  Nvidia: https://github.com/Pigeoncoin/ccminer
+  AMD: https://github.com/andru-kun/wildrig-multi/releases/
 
 exchanges:
   CryptoBridge: https://crypto-bridge.org/
