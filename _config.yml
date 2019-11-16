@@ -50,11 +50,12 @@ pool:
   address: https://pool.pigeoncoin.org:3663
 
 explorer:
-  website: https://chainmapper.com/PGN
+  website: http://explorer.pigeoncoin.org
 
 donate:
-  pgn: PDiZ89gk5HMqwrcGp6Hs9WdgFALzLbD4HG
-  btc: 1NaVP4cKiWY6MxSDkTCZ2kh5Xm3coA27Qv
+   pgn: rLzD7RxVS1QMZ5yYrmoUvfnTNuzgUqJVVK
+#  pgn: PDiZ89gk5HMqwrcGp6Hs9WdgFALzLbD4HG
+#  btc: 1NaVP4cKiWY6MxSDkTCZ2kh5Xm3coA27Qv
 
 # Mastodon instances
 # mastodon:
