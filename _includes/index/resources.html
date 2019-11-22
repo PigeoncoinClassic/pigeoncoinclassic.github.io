@@ -85,7 +85,14 @@
 
           <article class="tile is-child notification is-light">
             <p class="title">Exchanges</p>
-            <p class="subtitle is-6">Reliable trading pairs</p>
+            <p class="subtitle is-6">
+                <button onclick="myFunction()">Disclaimer</button>
+                <script>
+                  function myFunction() {
+                  alert("Disclaimer\Disclaimer: Please be aware of the risks involved with any trading done in any financial market. Do not trade with money that you cannot afford to lose. When in doubt, you should consult a qualified financial advisor before making any investment decisions. Trading and investing in cryptocurrencies involves substantial risk of loss and is not suitable for every investor. Trade and use at your own risk.");
+                  }
+                </script>
+            </p>
             <div class="buttons">
               {% for platform in site.exchanges %}
                 <a href="{{ platform[1] }}" class="button is-medium is-danger">{{ platform[0]}} &nbsp;<i class="fas fa-link"></i></a>
