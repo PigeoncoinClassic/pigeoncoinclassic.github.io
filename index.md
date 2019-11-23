@@ -9,4 +9,3 @@ Pigeoncoin pioneered the X16S (shuffle) algorithm and now uses a related algorit
 
 Pigeoncoin is community operated! We are most active on [Discord](https://discord.gg/SZcf63h).
 
-Our multi-sig Bitcoin donation address is `38oBuRdPkW4z8rv8U2LStueHDHYK5MvBtW`
