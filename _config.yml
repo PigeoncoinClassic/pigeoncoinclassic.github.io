@@ -28,7 +28,7 @@ wallets:
   macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.17.0.3/pigeoncoin-0.17.0-osx.dmg
   Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.17.0.3/pigeoncoin-0.17.0-win64.zip
   Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.17.0.3/pigeoncoin-0.17.0-x86_64-linux-gnu.tar.gz
-  # Android: https://play.google.com/store/apps/details?id=org.myntlabs.pgn
+  Android: https://play.google.com/store/apps/details?id=org.pgnwallet.aw
 
 miners:
   Nvidia: https://github.com/Pigeoncoin/ccminer
