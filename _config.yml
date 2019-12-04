@@ -35,10 +35,10 @@ miners:
   AMD: https://github.com/andru-kun/wildrig-multi/releases/
 
 exchanges:
-  CryptoBridge: https://crypto-bridge.org/
-  'Safe Trade': https://www.safe.trade/
-  Swiftex: https://swiftex.co/
+  'Safe Trade': https://safe.trade/trading/pgnbtc
+  QBTC: https://www.qbtc.ink/markets?symbol=PGN_USDT
   Hotbit: https://www.hotbit.io/exchange?symbol=PGN_BTC
+  Citex: https://trade.citex.co.kr/trade/PGN_USDT
   
 broadcasts:
   'January 8': https://www.youtube.com/watch?v=YpfHjgjNrYY
