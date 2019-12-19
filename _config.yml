@@ -6,8 +6,8 @@ description: >
 
 notice:
   show: true
-  address: https://www.coinex.co/register?refer_code=fgn2r
-  text: Coinex Exchange Listing - 500 signups required to claim your PGN rewards!
+  address: https://play.google.com/store/apps/details?id=org.pgnwallet.aw
+  text: Download our new Android mobile wallet with BIP44 support 
   color: has-text-success #danger, warning, success, info, primary, secondary
 
 
