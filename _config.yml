@@ -1,5 +1,5 @@
-title: Pigeoncoin
-email: contact@pigeoncoin.org
+title: Pigeoncoin Classic
+email: contact@pigeoncoinclassic.org
 tagline: Digital freedom
 description: >
   Messaging and payments for everyone. Security by Blockchain.
@@ -7,27 +7,27 @@ description: >
 notice:
   show: true
   address: https://play.google.com/store/apps/details?id=org.pgnwallet.aw
-  text: Download our new Android mobile wallet with BIP44 support 
+  text: Android Mobile Wallet 
   color: has-text-success #danger, warning, success, info, primary, secondary
 
 
 # config
-baseurl: null # baseurl: null # when deployed to pigeoncoin.org
+baseurl: null # baseurl: null # when deployed to pigeoncoinclassic.org
 
 # social links
 social:
-    Discord: https://discord.gg/SZcf63h
-    Twitter: https://twitter.com/Pigeoncoin
-    Github: https://github.com/Pigeoncoin
-    Reddit: https://www.reddit.com/r/Pigeoncoin/
-    Telegram: https://t.me/Pigeoncoin
-    Medium: https://medium.com/@pigeoncoin
+    Discord: https://discord.gg/Jm977kdqEC
+    Twitter: https://twitter.com/Pigeoncoinclassic
+    Github: https://github.com/PigeoncoinClassic
+    Reddit: https://www.reddit.com/r/Pigeoncoinclassic/
+    Telegram: https://t.me/Pigeoncoinclassic
+    Medium: https://medium.com/@pigeoncoinclassic
 
 # download links
 wallets:
-  macOS: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.17.0.3/pigeoncoin-0.17.0-osx.dmg
-  Windows: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.17.0.3/pigeoncoin-0.17.0-win64.zip
-  Linux: https://github.com/Pigeoncoin/pigeoncoin/releases/download/v0.17.0.3/pigeoncoin-0.17.0-x86_64-linux-gnu.tar.gz
+  macOS: https://github.com/PigeoncoinClassic/PigeoncoinClassic/releases/tag/v1.17.01.1
+  Windows: https://github.com/PigeoncoinClassic/PigeoncoinClassic/releases/tag/v1.17.01.1
+  Linux: https://github.com/PigeoncoinClassic/PigeoncoinClassic/releases/tag/v1.17.01.1
   Android: https://play.google.com/store/apps/details?id=org.pgnwallet.aw
 
 miners:
@@ -35,25 +35,19 @@ miners:
   AMD: https://github.com/andru-kun/wildrig-multi/releases/
 
 exchanges:
-  'Safe Trade': https://safe.trade/trading/pgnbtc
-  QBTC: https://www.qbtc.ink/markets?symbol=PGN_USDT
-  Hotbit: https://www.hotbit.io/exchange?symbol=PGN_BTC
-  Citex: https://trade.citex.co.kr/trade/PGN_USDT
-  
-broadcasts:
-  'January 8': https://www.youtube.com/watch?v=YpfHjgjNrYY
-  'January 15': https://www.youtube.com/watch?v=dNvzaoLd2gs
-  'January 29': https://www.youtube.com/watch?v=2SBMhSIhHUc
+  'AUTRADEX': https://autradex.systems
 
+broadcasts:
+  
 pool:
-  website: https://pool.pigeoncoin.org
-  address: https://pool.pigeoncoin.org:3663
+  website: https://cminors-pool.com/
+  address: https://cminors-pool.com/
 
 explorer:
-  website: https://explorer.pigeoncoin.org
+  website: https://openchains.info
 
 donate:
-   pgn: rLzD7RxVS1QMZ5yYrmoUvfnTNuzgUqJVVK
+   pgc: PF6ZtE2YjUK2328JeyJBbbWGRiH8Hydoqj
 #  pgn: PDiZ89gk5HMqwrcGp6Hs9WdgFALzLbD4HG
 #  btc: 1NaVP4cKiWY6MxSDkTCZ2kh5Xm3coA27Qv
 
